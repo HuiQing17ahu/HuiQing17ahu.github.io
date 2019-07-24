@@ -15,17 +15,22 @@
 
 
 
-<meta name="description" content="��Ҫ�㾲��ѧϰ�Ƿݵȴ�ʱ�������������ҲҪ��һ��������ݵȴ�֮���Ŭ���ͼ�֡�">
+<meta name="description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
 <meta name="keywords" content="DP">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Huiqing&#39;s  blog">
-<meta property="og:url" content="https://huiqing17ahu.github.io/archives/2019/index.html">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/23/math/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="��Ҫ�㾲��ѧϰ�Ƿݵȴ�ʱ�������������ҲҪ��һ��������ݵȴ�֮���Ŭ���ͼ�֡�">
+<meta property="og:description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png">
+<meta property="og:updated_time" content="2019-07-24T17:41:00.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Huiqing&#39;s  blog">
-<meta name="twitter:description" content="��Ҫ�㾲��ѧϰ�Ƿݵȴ�ʱ�������������ҲҪ��һ��������ݵȴ�֮���Ŭ���ͼ�֡�">
+<meta name="twitter:description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019 | Huiqing&#39;s  blog</title>
+<title>Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,8 +72,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -274,104 +279,238 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-math" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2019/07/23/math/" class="article-date">
+      <time datetime="2019-07-23T15:56:59.141Z" itemprop="datePublished">2019-07-23</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+    <div class="article-entry" itemprop="articleBody">
       
+          
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script> 
+<hr>
+<p>title: ‘基础数论:素数、约数、同余’<br>date: 2019-07-23 23:56:59<br>categories:</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ul>
+<li>素数</li>
+<li>约数</li>
+<li>反素数</li>
+<li>模运算</li>
+<li>同余类</li>
+<li>快速幂</li>
+<li>最大公因数</li>
+</ul>
+<a id="more"></a>   
+<h2 id="一、素数"><a href="#一、素数" class="headerlink" title="一、素数"></a>一、素数</h2><ul>
+<li>0和1既不是素数也不是合数，最小的素数是2  </li>
+</ul>
+<p><strong>素数的判定：</strong>  </p>
+<p><strong>试除法：</strong>如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。  </p>
+<pre><code>`
+bool isPrime(int num)
+{
+if(num&lt;=3)
+return num&gt;1;
+
+//排除掉非 6x-1和6x+1的数
+if(num%6!=1&amp;&amp;num%6!=5) 
+return false;
+
+int cnt=(int)sqrt(num);
+for(int i=5;i&lt;=cnt;i+=6)
+{
+    if(num%i==0||num%(i+2)==0)
+    return false;
+}
+return true;
+}
+`</code></pre><p><strong>加速技巧：</strong>大于4的素数总是等于6x+1 或6x-1  </p>
+<p><strong>如何证明？</strong>约数一定是成对出现的，d 和 n/d</p>
+<blockquote>
+<p>min(d,n/d)&lt;=√n</p>
+</blockquote>
+<p><strong>素数的几个性质</strong></p>
+<ol>
+<li><p>素数的个数无限多（不存在最大的素数）  </p>
+</li>
+<li><p>存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）  </p>
+</li>
+<li><p>所有大于2的素数都可以唯一地表示成两个平方数之差。  </p>
+</li>
+<li><p>当n为大于2的整数时，2^n+1和2^n-1两个数中，如果其中一个数是素数，那么另一个数一定是合数。  </p>
+</li>
+<li><p>如果p是素数，a是小于p的正整数，那么a^(p-1) mod p = 1。 </p>
+</li>
+</ol>
+<p>参考链接：<a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/234</a></p>
+<ul>
+<li>Miller-Rabin算法：<br>是一种概率算法，存在误判的可能性，但是出错的概率非常小  <blockquote>
+<p>费马小定理：<br>若p是素数，且a与p互质，则\(a^p≡a(mod;p)\)<br>变形:(1)\(a^{p-1}≡a(mod;p)\) (2)\(a^{p-1}-1≡0 (mod;p)\)</p>
+</blockquote>
+</li>
+</ul>
+<p>学习参考链接：<a href="http://www.360doc.com/content/17/1206/04/9482_710338732.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/1206/04/9482_710338732.shtml</a></p>
+<blockquote>
+<p>比较容易理解的“无字证明”：  </p>
+<ul>
+<li>事实上，根据同余的性质，只要证明\(a^p≡a(mod p)\)对0&lt;=a&lt;=p-1成立，就可以得到上述定理。<br>考虑一根有 p 颗珠子的项链，其每颗珠子有 a 种染色选择，所以总共 \(a^p\) 种选择去给项链染色，结果中会有 a 根项链其所有的珠子颜色相同，而在剩下的项链中，总有 p 根其上色方式经过旋转是相同的（*）。<br>所以\(a^p-a\)会被 p 整除。<br><img src="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png" alt></li>
+</ul>
+<p>p 必须是质数的原因，实际上隐藏在被标记（*）的句子中  </p>
+<p>假设 p 不是质数，a=2 ， p=4 。此时 p 与 a 有一个公因子 2 ，虚线左侧的项链理应有另外 3 个与它旋转等价的项链，然而事实上由于重复，只有 1 个，所以我们上面的论证对这种情形不成立。<br><img src="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png" alt><br>把红色记为 A ，蓝色记为 B ，上例中的第一根项链可以记为 ABAB ，是由两个重复的 AB 组成；类似地，第二根可以记为 BABA 。事实上，把每根项链都记为一个字母序列 S ，如果 S 是由几个重复的字母序列 T 组成，且 T 不能拆分成更短的重复序列，那么所有<strong>关于 S 旋转等价的项链总数</strong>等于 <strong>T 的长度</strong>。易知T 的长度整除 S的长度，如果 T 的长度是素数 p ，那么 S 的长度也是素数 p ；因此关于 S 旋转等价的项链会有 p 根.<br><img src="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png" alt></p>
+</blockquote>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/07/24/newcoder-1/" class="archive-article-date">
-      <time datetime="2019-07-23T16:30:57.000Z" itemprop="datePublished">07-24</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/24/newcoder-1/">newcoder 1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/07/23/math/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
+        <p><span>发布时间:</span>2019-07-23, 23:56:59</p>
+        <p><span>最后更新:</span>2019-07-25, 01:41:00</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/23/math/" title="">https://huiqing17ahu.github.io/2019/07/23/math/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/23/math/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/07/24/newcoder-1/">
+                    newcoder 1
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/07/22/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/07/23/math/" class="archive-article-date">
-      <time datetime="2019-07-23T15:56:59.141Z" itemprop="datePublished">07-23</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、素数"><span class="toc-number">2.</span> <span class="toc-text">一、素数</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/07/22/hello-world/" class="archive-article-date">
-      <time datetime="2019-07-22T10:24:18.738Z" itemprop="datePublished">07-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
+    
+</div>
+
+
+
+
+
+
+
+    
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTUxNy8yMjAyOQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/07/24/newcoder-1/" title="上一篇: newcoder 1">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/07/22/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/newcoder-1/">newcoder 1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/math/">math</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/22/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
