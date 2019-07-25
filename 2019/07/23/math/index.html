@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png">
-<meta property="og:updated_time" content="2019-07-24T17:41:00.786Z">
+<meta property="og:updated_time" content="2019-07-25T06:36:05.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Huiqing&#39;s  blog">
 <meta name="twitter:description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
@@ -314,26 +314,8 @@
 <li>0和1既不是素数也不是合数，最小的素数是2  </li>
 </ul>
 <p><strong>素数的判定：</strong>  </p>
-<p><strong>试除法：</strong>如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。  </p>
-<pre><code>`
-bool isPrime(int num)
-{
-if(num&lt;=3)
-return num&gt;1;
-
-//排除掉非 6x-1和6x+1的数
-if(num%6!=1&amp;&amp;num%6!=5) 
-return false;
-
-int cnt=(int)sqrt(num);
-for(int i=5;i&lt;=cnt;i+=6)
-{
-    if(num%i==0||num%(i+2)==0)
-    return false;
-}
-return true;
-}
-`</code></pre><p><strong>加速技巧：</strong>大于4的素数总是等于6x+1 或6x-1  </p>
+<p><strong>试除法：</strong>如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。 </p>
+<p><strong>加速技巧：</strong>大于4的素数总是等于6x+1 或6x-1  </p>
 <p><strong>如何证明？</strong>约数一定是成对出现的，d 和 n/d</p>
 <blockquote>
 <p>min(d,n/d)&lt;=√n</p>
@@ -367,7 +349,23 @@ return true;
 <p>p 必须是质数的原因，实际上隐藏在被标记（*）的句子中  </p>
 <p>假设 p 不是质数，a=2 ， p=4 。此时 p 与 a 有一个公因子 2 ，虚线左侧的项链理应有另外 3 个与它旋转等价的项链，然而事实上由于重复，只有 1 个，所以我们上面的论证对这种情形不成立。<br><img src="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png" alt><br>把红色记为 A ，蓝色记为 B ，上例中的第一根项链可以记为 ABAB ，是由两个重复的 AB 组成；类似地，第二根可以记为 BABA 。事实上，把每根项链都记为一个字母序列 S ，如果 S 是由几个重复的字母序列 T 组成，且 T 不能拆分成更短的重复序列，那么所有<strong>关于 S 旋转等价的项链总数</strong>等于 <strong>T 的长度</strong>。易知T 的长度整除 S的长度，如果 T 的长度是素数 p ，那么 S 的长度也是素数 p ；因此关于 S 旋转等价的项链会有 p 根.<br><img src="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png" alt></p>
 </blockquote>
+<pre><code>bool isPrime(int num)
+    {
+    if(num&lt;=3)
+    return num&gt;1;
 
+    //排除掉非 6x-1和6x+1的数
+    if(num%6!=1&amp;&amp;num%6!=5) 
+    return false;
+
+    int cnt=(int)sqrt(num);
+    for(int i=5;i&lt;=cnt;i+=6)
+    {
+        if(num%i==0||num%(i+2)==0)
+        return false;
+    }
+    return true;
+    }</code></pre>
       
     </div>
     
@@ -378,7 +376,7 @@ return true;
         <p><span>本文标题:</span><a href="/2019/07/23/math/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-07-23, 23:56:59</p>
-        <p><span>最后更新:</span>2019-07-25, 01:41:00</p>
+        <p><span>最后更新:</span>2019-07-25, 14:36:05</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/23/math/" title="">https://huiqing17ahu.github.io/2019/07/23/math/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/23/math/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
