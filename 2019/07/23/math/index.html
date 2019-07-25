@@ -15,21 +15,21 @@
 
 
 
-<meta name="description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
+<meta name="description" content="&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; title: &apos;基础数论:素数、约数、同余&apos; date: 2019-07-23 23:56:59 categori">
 <meta name="keywords" content="DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Huiqing&#39;s  blog">
 <meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/23/math/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
+<meta property="og:description" content="&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; title: &apos;基础数论:素数、约数、同余&apos; date: 2019-07-23 23:56:59 categori">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png">
-<meta property="og:updated_time" content="2019-07-25T06:36:05.681Z">
+<meta property="og:updated_time" content="2019-07-25T07:19:27.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Huiqing&#39;s  blog">
-<meta name="twitter:description" content="title: ‘基础数论:素数、约数、同余’date: 2019-07-23 23:56:59categories: tags: 素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
+<meta name="twitter:description" content="&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; title: &apos;基础数论:素数、约数、同余&apos; date: 2019-07-23 23:56:59 categori">
 <meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -297,10 +297,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script> 
+        <h2>&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;</h2>
+<p>title: '基础数论:素数、约数、同余'
+date: 2019-07-23 23:56:59
+categories:
+tags:</p>
 <hr>
-<p>title: ‘基础数论:素数、约数、同余’<br>date: 2019-07-23 23:56:59<br>categories:</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ul>
+<ul>
 <li>素数</li>
 <li>约数</li>
 <li>反素数</li>
@@ -309,63 +312,80 @@
 <li>快速幂</li>
 <li>最大公因数</li>
 </ul>
-<a id="more"></a>   
-<h2 id="一、素数"><a href="#一、素数" class="headerlink" title="一、素数"></a>一、素数</h2><ul>
-<li>0和1既不是素数也不是合数，最小的素数是2  </li>
+<p>&lt;!--more--&gt;</p>
+<h2>一、素数</h2>
+<ul>
+<li>0和1既不是素数也不是合数，最小的素数是2</li>
 </ul>
-<p><strong>素数的判定：</strong>  </p>
-<p><strong>试除法：</strong>如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。 </p>
-<p><strong>加速技巧：</strong>大于4的素数总是等于6x+1 或6x-1  </p>
-<p><strong>如何证明？</strong>约数一定是成对出现的，d 和 n/d</p>
+<p><strong>素数的判定：</strong></p>
+<p>**试除法：**如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。</p>
+<pre><code>bool isPrime(int num)
+	{
+	if(num&lt;=3)
+	return num&gt;1;
+	
+	//排除掉非 6x-1和6x+1的数
+	if(num%6!=1&amp;&amp;num%6!=5) 
+	return false;
+	
+	int cnt=(int)sqrt(num);
+	for(int i=5;i&lt;=cnt;i+=6)
+	{
+		if(num%i==0||num%(i+2)==0)
+		return false;
+	}
+	return true;
+	}
+</code></pre>
+<p>**加速技巧：**大于4的素数总是等于6x+1 或6x-1</p>
+<p>**如何证明？**约数一定是成对出现的，d 和 n/d</p>
 <blockquote>
 <p>min(d,n/d)&lt;=√n</p>
 </blockquote>
 <p><strong>素数的几个性质</strong></p>
 <ol>
-<li><p>素数的个数无限多（不存在最大的素数）  </p>
+<li>
+<p>素数的个数无限多（不存在最大的素数）</p>
 </li>
-<li><p>存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）  </p>
+<li>
+<p>存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）</p>
 </li>
-<li><p>所有大于2的素数都可以唯一地表示成两个平方数之差。  </p>
+<li>
+<p>所有大于2的素数都可以唯一地表示成两个平方数之差。</p>
 </li>
-<li><p>当n为大于2的整数时，2^n+1和2^n-1两个数中，如果其中一个数是素数，那么另一个数一定是合数。  </p>
+<li>
+<p>当n为大于2的整数时，2^n+1和2^n-1两个数中，如果其中一个数是素数，那么另一个数一定是合数。</p>
 </li>
-<li><p>如果p是素数，a是小于p的正整数，那么a^(p-1) mod p = 1。 </p>
+<li>
+<p>如果p是素数，a是小于p的正整数，那么a^(p-1) mod p = 1。</p>
 </li>
 </ol>
 <p>参考链接：<a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/234</a></p>
 <ul>
-<li>Miller-Rabin算法：<br>是一种概率算法，存在误判的可能性，但是出错的概率非常小  <blockquote>
-<p>费马小定理：<br>若p是素数，且a与p互质，则\(a^p≡a(mod;p)\)<br>变形:(1)\(a^{p-1}≡a(mod;p)\) (2)\(a^{p-1}-1≡0 (mod;p)\)</p>
-</blockquote>
-</li>
+<li>Miller-Rabin算法：
+是一种概率算法，存在误判的可能性，但是出错的概率非常小</li>
 </ul>
+<blockquote>
+<p>费马小定理：
+若p是素数，且a与p互质，则\(a^p≡a(mod;p)\)
+变形:(1)\(a^{p-1}≡a(mod;p)\) (2)\(a^{p-1}-1≡0 (mod;p)\)</p>
+</blockquote>
 <p>学习参考链接：<a href="http://www.360doc.com/content/17/1206/04/9482_710338732.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/1206/04/9482_710338732.shtml</a></p>
 <blockquote>
-<p>比较容易理解的“无字证明”：  </p>
+<p>比较容易理解的“无字证明”： （转自知乎）</p>
 <ul>
-<li>事实上，根据同余的性质，只要证明\(a^p≡a(mod p)\)对0&lt;=a&lt;=p-1成立，就可以得到上述定理。<br>考虑一根有 p 颗珠子的项链，其每颗珠子有 a 种染色选择，所以总共 \(a^p\) 种选择去给项链染色，结果中会有 a 根项链其所有的珠子颜色相同，而在剩下的项链中，总有 p 根其上色方式经过旋转是相同的（*）。<br>所以\(a^p-a\)会被 p 整除。<br><img src="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png" alt></li>
+<li>事实上，根据同余的性质，只要证明\(a^p≡a(mod p)\)对0&lt;=a&lt;=p-1成立，就可以得到上述定理。<br>
+考虑一根有 p 颗珠子的项链，其每颗珠子有 a 种染色选择，所以总共 \(a^p\) 种选择去给项链染色，结果中会有 a 根项链其所有的珠子颜色相同，而在剩下的项链中，总有 p 根其上色方式经过旋转是相同的（*）。<br>
+所以\(a^p-a\)会被 p 整除。
+<img src="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png" alt></li>
 </ul>
-<p>p 必须是质数的原因，实际上隐藏在被标记（*）的句子中  </p>
-<p>假设 p 不是质数，a=2 ， p=4 。此时 p 与 a 有一个公因子 2 ，虚线左侧的项链理应有另外 3 个与它旋转等价的项链，然而事实上由于重复，只有 1 个，所以我们上面的论证对这种情形不成立。<br><img src="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png" alt><br>把红色记为 A ，蓝色记为 B ，上例中的第一根项链可以记为 ABAB ，是由两个重复的 AB 组成；类似地，第二根可以记为 BABA 。事实上，把每根项链都记为一个字母序列 S ，如果 S 是由几个重复的字母序列 T 组成，且 T 不能拆分成更短的重复序列，那么所有<strong>关于 S 旋转等价的项链总数</strong>等于 <strong>T 的长度</strong>。易知T 的长度整除 S的长度，如果 T 的长度是素数 p ，那么 S 的长度也是素数 p ；因此关于 S 旋转等价的项链会有 p 根.<br><img src="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png" alt></p>
+<p>p 必须是质数的原因，实际上隐藏在被标记（*）的句子中</p>
+<p>假设 p 不是质数，a=2 ， p=4 。此时 p 与 a 有一个公因子 2 ，虚线左侧的项链理应有另外 3 个与它旋转等价的项链，然而事实上由于重复，只有 1 个，所以我们上面的论证对这种情形不成立。<br>
+<img src="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png" alt><br>
+把红色记为 A ，蓝色记为 B ，上例中的第一根项链可以记为 ABAB ，是由两个重复的 AB 组成；类似地，第二根可以记为 BABA 。事实上，把每根项链都记为一个字母序列 S ，如果 S 是由几个重复的字母序列 T 组成，且 T 不能拆分成更短的重复序列，那么所有<strong>关于 S 旋转等价的项链总数</strong>等于 <strong>T 的长度</strong>。易知T 的长度整除 S的长度，如果 T 的长度是素数 p ，那么 S 的长度也是素数 p ；因此关于 S 旋转等价的项链会有 p 根.<br>
+<img src="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png" alt></p>
 </blockquote>
-<pre><code>bool isPrime(int num)
-    {
-    if(num&lt;=3)
-    return num&gt;1;
 
-    //排除掉非 6x-1和6x+1的数
-    if(num%6!=1&amp;&amp;num%6!=5) 
-    return false;
-
-    int cnt=(int)sqrt(num);
-    for(int i=5;i&lt;=cnt;i+=6)
-    {
-        if(num%i==0||num%(i+2)==0)
-        return false;
-    }
-    return true;
-    }</code></pre>
       
     </div>
     
@@ -376,7 +396,7 @@
         <p><span>本文标题:</span><a href="/2019/07/23/math/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-07-23, 23:56:59</p>
-        <p><span>最后更新:</span>2019-07-25, 14:36:05</p>
+        <p><span>最后更新:</span>2019-07-25, 15:19:27</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/23/math/" title="">https://huiqing17ahu.github.io/2019/07/23/math/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/23/math/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -412,7 +432,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、素数"><span class="toc-number">2.</span> <span class="toc-text">一、素数</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">一、素数</span></a></li></ol>
         
     </div>
     <style>
