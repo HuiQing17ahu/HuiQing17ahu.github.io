@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png">
-<meta property="og:updated_time" content="2019-07-25T16:46:38.162Z">
+<meta property="og:updated_time" content="2019-07-25T17:42:24.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础数论:素数、约数、同余">
 <meta name="twitter:description" content="&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
@@ -336,7 +336,7 @@
 <ul>
 <li>0和1既不是素数也不是合数，最小的素数是2</li>
 </ul>
-<p><strong>素数的判定:</strong></p>
+<h3>（一）素数的判定:</h3>
 <p>**试除法：**如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。</p>
 <pre><code>bool isPrime(int num)
 	{
@@ -350,7 +350,8 @@
 	int cnt=(int)sqrt(num);
 	for(int i=5;i&lt;=cnt;i+=6)
 	{
-		if(num%i==0||num%(i+2)==0)
+		if(num%i==0||num%(i+2)==0)//这里%i和%(i+2)  类似于表示5 和7 这样的倍数
+					//由上知素数必然是6x-1或6x+1形式，然后再试除，排除有其他因子的
 		return false;
 	}
 	return true;
@@ -382,14 +383,15 @@
 <p>参考链接：<a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/234</a></p>
 <ul>
 <li>Miller-Rabin算法：
-是一种概率算法，存在误判的可能性，但是出错的概率非常小</li>
+是一种概率算法，存在误判的可能性，但是出错的概率非常小<br>
+算法详解：<a href="https://blog.csdn.net/ECNU_LZJ/article/details/72675595" target="_blank" rel="noopener">https://blog.csdn.net/ECNU_LZJ/article/details/72675595</a></li>
 </ul>
 <blockquote>
 <p>费马小定理：
 若p是素数，且a与p互质，则\(a^p≡a(mod;p)\)
 变形:(1)\(a^{p-1}≡a(mod;p)\) (2)\(a^{p-1}-1≡0 (mod;p)\)</p>
 </blockquote>
-<p>学习参考链接：<a href="http://www.360doc.com/content/17/1206/04/9482_710338732.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/1206/04/9482_710338732.shtml</a></p>
+<p>费马小定理参考链接：<a href="http://www.360doc.com/content/17/1206/04/9482_710338732.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/1206/04/9482_710338732.shtml</a></p>
 <blockquote>
 <p>比较容易理解的“无字证明”： （转自知乎）</p>
 <ul>
@@ -404,6 +406,27 @@
 把红色记为 A ，蓝色记为 B ，上例中的第一根项链可以记为 ABAB ，是由两个重复的 AB 组成；类似地，第二根可以记为 BABA 。事实上，把每根项链都记为一个字母序列 S ，如果 S 是由几个重复的字母序列 T 组成，且 T 不能拆分成更短的重复序列，那么所有<strong>关于 S 旋转等价的项链总数</strong>等于 <strong>T 的长度</strong>。易知T 的长度整除 S的长度，如果 T 的长度是素数 p ，那么 S 的长度也是素数 p ；因此关于 S 旋转等价的项链会有 p 根.<br>
 <img src="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png" alt></p>
 </blockquote>
+<h3>（二）素数筛选：</h3>
+<p>（1）素数埃式筛法（可能会重复筛）
+算法思想：</p>
+<ul>
+<li>
+<p>初始数列 ：{2 、3，4，5，6，7，8，9，10 ，11 ，12 ，13 ，... ，n}</p>
+</li>
+<li>
+<p>输出 最小的素数 {2} ，筛掉 2的倍数，剩下 {3 ，5，7，9，11 ，13 ，...}</p>
+</li>
+<li>
+<p>输出 素数 {2,3} ，筛掉 3的倍数，剩下 {5 ，7，11 ，13 ，...}</p>
+</li>
+<li>
+<p>输出 素数 {2,3,5} {2,3,5} ，筛掉 5的倍数，剩下 {7 ，11 、13 ，...}</p>
+</li>
+<li>
+<p>继续以上步骤， 直到 n。</p>
+<p><strong>时间复杂度：O（nlog log n)</strong></p>
+</li>
+</ul>
 
       
     </div>
@@ -415,7 +438,7 @@
         <p><span>本文标题:</span><a href="/2019/07/23/math/">基础数论:素数、约数、同余</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-07-23, 23:56:59</p>
-        <p><span>最后更新:</span>2019-07-26, 00:46:38</p>
+        <p><span>最后更新:</span>2019-07-26, 01:42:24</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/23/math/" title="基础数论:素数、约数、同余">https://huiqing17ahu.github.io/2019/07/23/math/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/23/math/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -451,7 +474,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、素数</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、素数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.1.</span> <span class="toc-text">（一）素数的判定:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.2.</span> <span class="toc-text">（二）素数筛选：</span></a></li></ol></li></ol>
         
     </div>
     <style>
