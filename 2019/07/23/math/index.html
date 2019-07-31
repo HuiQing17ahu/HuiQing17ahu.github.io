@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-cf4133e03de2da53001a5e3870f76816_hd.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-2da1015b9a71d305462b90842e1c0ab4_hd.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-0185fc0732a8b1a7f3123bf7acc19fc3_hd.png">
-<meta property="og:updated_time" content="2019-07-25T17:42:24.816Z">
+<meta property="og:updated_time" content="2019-07-31T01:43:50.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础数论:素数、约数、同余">
 <meta name="twitter:description" content="素数 约数 反素数 模运算 同余类 快速幂 最大公因数">
@@ -347,25 +347,7 @@
 </ul>
 <h3>（一）素数的判定:</h3>
 <p>**试除法：**如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。</p>
-<pre><code>bool isPrime(int num)
-	{
-	if(num&lt;=3)
-	return num&gt;1;
-	
-	//排除掉非 6x-1和6x+1的数
-	if(num%6!=1&amp;&amp;num%6!=5) 
-	return false;
-	
-	int cnt=(int)sqrt(num);
-	for(int i=5;i&lt;=cnt;i+=6)
-	{
-		if(num%i==0||num%(i+2)==0)//这里%i和%(i+2)  类似于表示5 和7 这样的倍数
-					//由上知素数必然是6x-1或6x+1形式，然后再试除，排除有其他因子的
-		return false;
-	}
-	return true;
-	}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">3</span>)</span><br><span class="line">	<span class="keyword">return</span> num&gt;<span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//排除掉非 6x-1和6x+1的数</span></span><br><span class="line">	<span class="keyword">if</span>(num%<span class="number">6</span>!=<span class="number">1</span>&amp;&amp;num%<span class="number">6</span>!=<span class="number">5</span>) </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> cnt=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(num);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">5</span>;i&lt;=cnt;i+=<span class="number">6</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num%i==<span class="number">0</span>||num%(i+<span class="number">2</span>)==<span class="number">0</span>)<span class="comment">//这里%i和%(i+2)  类似于表示5 和7 这样的倍数</span></span><br><span class="line">					<span class="comment">//由上知素数必然是6x-1或6x+1形式，然后再试除，排除有其他因子的</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>**加速技巧：**大于4的素数总是等于6x+1 或6x-1</p>
 <p>**如何证明？**约数一定是成对出现的，d 和 n/d</p>
 <blockquote>
@@ -447,7 +429,7 @@
         <p><span>本文标题:</span><a href="/2019/07/23/math/">基础数论:素数、约数、同余</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-07-23, 23:56:59</p>
-        <p><span>最后更新:</span>2019-07-26, 01:42:24</p>
+        <p><span>最后更新:</span>2019-07-31, 09:43:50</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/23/math/" title="基础数论:素数、约数、同余">https://huiqing17ahu.github.io/2019/07/23/math/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/23/math/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
