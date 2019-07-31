@@ -200,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
                     </div>
                 </section>
                 
@@ -300,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/2019牛客多校第一场/">newcoder 1</a>
+      <a class="article-title" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a>
     </h1>
   
 
@@ -311,8 +311,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">1e8</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">	x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> r=exgcd(b,a%b,x,y);</span><br><span class="line"><span class="keyword">int</span> temp=x;</span><br><span class="line">x=y;</span><br><span class="line">y=temp-a/b*y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> r;<span class="comment">//r=gcd(a,b)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">int</span> a,b,w;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;w&amp;&amp;a&amp;&amp;b&amp;&amp;w)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> x,y,x0,y0;</span><br><span class="line">	<span class="keyword">bool</span> flag=<span class="literal">false</span>;	</span><br><span class="line">	<span class="keyword">if</span>(a&lt;b)</span><br><span class="line">	&#123;</span><br><span class="line">		swap(a,b);</span><br><span class="line">		flag=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> d=exgcd(a,b,x,y);</span><br><span class="line"></span><br><span class="line">	x0=w*x/d,y0=w*y/d;</span><br><span class="line">	<span class="keyword">int</span> t=d*y0/a;<span class="comment">//取最小值时的解 </span></span><br><span class="line">	<span class="keyword">int</span> ansx,ansy;</span><br><span class="line">	<span class="keyword">int</span> mina=inf;</span><br><span class="line">	<span class="keyword">int</span> minm=inf;</span><br><span class="line">	<span class="keyword">int</span> mul;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=t<span class="number">-1</span>;i&lt;=t+<span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		x=x0+b/d*i;</span><br><span class="line">		y=y0-a/d*i;</span><br><span class="line">		x=<span class="built_in">abs</span>(x),y=<span class="built_in">abs</span>(y);<span class="comment">//取绝对值</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(x+y&lt;mina||(x+y==mina&amp;&amp;a*x+b*y&lt;minm))</span><br><span class="line">		&#123;</span><br><span class="line">			mina=x+y;</span><br><span class="line">			minm=a*x+b*y;</span><br><span class="line">			ansx=x,ansy=y;</span><br><span class="line">		 &#125; 	 </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(flag)<span class="comment">//和原来要保持一致 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ansy,ansx);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ansx,ansy);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+              <p>
+          
       
     </div>
     
@@ -321,6 +321,79 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/07/24/2019牛客多校第一场/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2019牛客多校第二场" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/24/2019牛客多校第二场/" class="article-date">
+      <time datetime="2019-07-23T16:30:57.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/07/24/2019牛客多校第二场/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

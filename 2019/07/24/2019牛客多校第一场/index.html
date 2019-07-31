@@ -15,18 +15,15 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;cmath&amp;gt; #in">
-<meta name="keywords" content="DP">
+<meta name="keywords" content="牛客多校">
 <meta property="og:type" content="article">
-<meta property="og:title" content="newcoder 1">
+<meta property="og:title" content="2019牛客多校第一场">
 <meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/24/2019牛客多校第一场/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;cmath&amp;gt; #in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T01:35:16.028Z">
+<meta property="og:updated_time" content="2019-07-31T03:52:58.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="newcoder 1">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;cmath&amp;gt; #in">
+<meta name="twitter:title" content="2019牛客多校第一场">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>newcoder 1 | Huiqing&#39;s  blog</title>
+<title>2019牛客多校第一场 | Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -196,7 +193,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
                     </div>
                 </section>
                 
@@ -294,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      newcoder 1
+      2019牛客多校第一场
     </h1>
   
 
@@ -305,6 +302,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -312,7 +313,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">1e8</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">	x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> r=exgcd(b,a%b,x,y);</span><br><span class="line"><span class="keyword">int</span> temp=x;</span><br><span class="line">x=y;</span><br><span class="line">y=temp-a/b*y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> r;<span class="comment">//r=gcd(a,b)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">int</span> a,b,w;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;w&amp;&amp;a&amp;&amp;b&amp;&amp;w)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> x,y,x0,y0;</span><br><span class="line">	<span class="keyword">bool</span> flag=<span class="literal">false</span>;	</span><br><span class="line">	<span class="keyword">if</span>(a&lt;b)</span><br><span class="line">	&#123;</span><br><span class="line">		swap(a,b);</span><br><span class="line">		flag=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> d=exgcd(a,b,x,y);</span><br><span class="line"></span><br><span class="line">	x0=w*x/d,y0=w*y/d;</span><br><span class="line">	<span class="keyword">int</span> t=d*y0/a;<span class="comment">//取最小值时的解 </span></span><br><span class="line">	<span class="keyword">int</span> ansx,ansy;</span><br><span class="line">	<span class="keyword">int</span> mina=inf;</span><br><span class="line">	<span class="keyword">int</span> minm=inf;</span><br><span class="line">	<span class="keyword">int</span> mul;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=t<span class="number">-1</span>;i&lt;=t+<span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		x=x0+b/d*i;</span><br><span class="line">		y=y0-a/d*i;</span><br><span class="line">		x=<span class="built_in">abs</span>(x),y=<span class="built_in">abs</span>(y);<span class="comment">//取绝对值</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(x+y&lt;mina||(x+y==mina&amp;&amp;a*x+b*y&lt;minm))</span><br><span class="line">		&#123;</span><br><span class="line">			mina=x+y;</span><br><span class="line">			minm=a*x+b*y;</span><br><span class="line">			ansx=x,ansy=y;</span><br><span class="line">		 &#125; 	 </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(flag)<span class="comment">//和原来要保持一致 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ansy,ansx);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ansx,ansy);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p><a id="more"></a></p>
 
       
     </div>
@@ -321,12 +322,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/24/2019牛客多校第一场/">newcoder 1</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-07-24, 00:30:57</p>
-        <p><span>最后更新:</span>2019-07-31, 09:35:16</p>
+        <p><span>最后更新:</span>2019-07-31, 11:52:58</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/24/2019牛客多校第一场/" title="newcoder 1">https://huiqing17ahu.github.io/2019/07/24/2019牛客多校第一场/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/24/2019牛客多校第一场/" title="2019牛客多校第一场">https://huiqing17ahu.github.io/2019/07/24/2019牛客多校第一场/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/24/2019牛客多校第一场/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -341,8 +342,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/07/23/数论（1）/">
-                    基础数论:素数、约数、同余
+                <a href="/2019/07/24/2019牛客多校第二场/">
+                    2019牛客多校第二场
                 </a>
             </div>
         
@@ -390,7 +391,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"newcoder 1　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"2019牛客多校第一场　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,13 +436,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/07/23/数论（1）/" title="下一篇: 基础数论:素数、约数、同余">
+            <a href="/2019/07/24/2019牛客多校第二场/" title="下一篇: 2019牛客多校第二场">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">newcoder 1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论（1）/">基础数论:素数、约数、同余</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论（1）/">基础数论:素数、约数、同余</a></li></ul>
 
 
 
