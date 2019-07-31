@@ -118,7 +118,7 @@ button::-moz-focus-inner {
   padding: 0;
 }
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
 body {
   font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
@@ -552,7 +552,7 @@ a {
   text-align: center;
   margin: 13px 0;
   font-family: Times, Georgia, serif;
-  font-size: 32px;
+  font-size: 34px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -572,8 +572,8 @@ a {
   display: block;
   border: 5px solid #fff;
   border-radius: 50%;
-  width: 130px;
-  height: 130px;
+  width: 132px;
+  height: 132px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -751,13 +751,13 @@ a {
   font-family: Arial;
 }
 #header .header-nav .social a {
-  width: 39px;
-  height: 39px;
+  width: 41px;
+  height: 41px;
   border-radius: 50%;
   margin: 0 2px 6px;
   vertical-align: middle;
-  font-size: 25.740000000000002px;
-  line-height: 39px;
+  font-size: 27.060000000000002px;
+  line-height: 41px;
   text-align: center;
   color: #fff;
   background: #6f7170;
@@ -1223,7 +1223,7 @@ body .ui-tooltip {
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 18px FontAwesome;
+  font: 20px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -1386,6 +1386,10 @@ body .ui-tooltip {
   background: rgba(255,255,255,0.4);
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  border-left: 5px solid rgba(112,134,142,0.85);
+  background: rgba(255,255,255,0.7);
+  border-left: 10px solid rgba(102,128,153,0.08);
+  background: rgba(102,128,153,0.08);
 }
 .article-entry blockquote p {
   margin: 0.4em auto;
@@ -1490,20 +1494,9 @@ body .ui-tooltip {
 .article-entry li ol {
   margin-left: 30px;
 }
-.article-entry ul > li:before {
-  content: "";
-  background: #dedede;
-}
-.article-entry ul > li:before {
-  display: inline-block;
-  content: "";
-  width: 0.4em;
-  height: 0.4em;
-  margin-right: 0.5em;
-  margin-bottom: 0.11em;
-  border: 1px solid #d3d3d3;
-  border-radius: 50%;
-  background: #d3d3d3;
+.article-entry ul > li {
+  margin-left: 1.1em;
+  list-style-type: disc;
 }
 .article-entry h1,
 .article-entry h2,
@@ -1684,7 +1677,7 @@ li:hover {
   bottom: 1em;
   left: 0;
   margin-left: 0;
-  padding: 6px 10px 10px 46px;
+  padding: 6px 10px 10px 42px;
   border-radius: 2.8%;
   overflow: auto;
 }
@@ -2049,7 +2042,7 @@ aside.comment-bar:active {
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 18px FontAwesome;
+  font: 20px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -2210,10 +2203,11 @@ aside.comment-bar:active {
   border-radius: 3px;
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.08);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.08);
-  var: 9;
+  var: 2;
   color: #fff;
   background: rgba(153,204,153,0.7);
-  background: rgba(250,250,250,0.6);
+  color: #f48385;
+  background: rgba(199,38,79,0.07);
 }
 pre .comment,
 pre .title {
@@ -2825,7 +2819,7 @@ pre .javascript .function {
 .article-category::before {
   float: left;
   color: #999;
-  font: 18px FontAwesome;
+  font: 20px FontAwesome;
   margin-right: 5px;
   margin-top: 0.333333333333333rem;
 }
@@ -2842,7 +2836,7 @@ pre .javascript .function {
 .article-pop-out:before {
   color: #999;
   content: "\f08d";
-  font: 18px FontAwesome;
+  font: 20px FontAwesome;
   float: left;
   margin-right: 5px;
   margin-top: 0.333333333333333rem;
