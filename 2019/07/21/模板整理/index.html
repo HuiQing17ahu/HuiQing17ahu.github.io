@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$">
+<meta name="description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 <meta name="keywords" content="模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模板整理">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/03/03/模板整理/index.html">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/21/模板整理/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$">
+<meta property="og:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T11:15:46.870Z">
+<meta property="og:updated_time" content="2019-07-31T11:27:30.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模板整理">
-<meta name="twitter:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$">
+<meta name="twitter:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -198,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
                     </div>
                 </section>
                 
@@ -282,8 +282,8 @@
       <div class="body-wrap"><article id="post-模板整理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/03/模板整理/" class="article-date">
-      <time datetime="2019-03-03T11:00:36.000Z" itemprop="datePublished">2019-03-03</time>
+      <a href="/2019/07/21/模板整理/" class="article-date">
+      <time datetime="2019-07-21T11:00:36.000Z" itemprop="datePublished">2019-07-21</time>
 </a>
 
 
@@ -321,6 +321,8 @@
       
           
         <h4>1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$</h4>
+<p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -329,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/03/模板整理/">模板整理</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/21/模板整理/">模板整理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-03-03, 19:00:36</p>
-        <p><span>最后更新:</span>2019-07-31, 19:15:46</p>
+        <p><span>发布时间:</span>2019-07-21, 19:00:36</p>
+        <p><span>最后更新:</span>2019-07-31, 19:27:30</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/03/模板整理/" title="模板整理">https://huiqing17ahu.github.io/2019/03/03/模板整理/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/03/03/模板整理/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/21/模板整理/" title="模板整理">https://huiqing17ahu.github.io/2019/07/21/模板整理/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/21/模板整理/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,7 +350,7 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/23/数论（1）/">
+                <a href="/2019/07/23/数论基础/">
                     基础数论:素数、约数、同余
                 </a>
             </div>
@@ -437,7 +439,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/23/数论（1）/" title="上一篇: 基础数论:素数、约数、同余">
+            <a href="/2019/07/23/数论基础/" title="上一篇: 基础数论:素数、约数、同余">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -449,7 +451,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/2019牛客多校第四场/">2019牛客多校第四场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论（1）/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/模板整理/">模板整理</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/树状数组/">树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/DP/">DP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/前缀和/">前缀和</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/莫队/">莫队</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/卡特兰数/">卡特兰数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/博弈论/">博弈论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/并查集/">并查集</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/主席树/">主席树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/线段树/">线段树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/线性基/">线性基</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/2019牛客多校第四场/">2019牛客多校第四场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论基础/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/21/模板整理/">模板整理</a></li></ul>
 
 
 

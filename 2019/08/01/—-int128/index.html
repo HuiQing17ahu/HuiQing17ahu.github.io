@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="ѧϰ����Ⱥ͹��">
-<meta name="keywords" content="牛客多校">
+<meta name="description" content="关于 __int128 众所周知: int是32位，范围大概为10^9 long long(g++编译器）， __int64（用%I64d控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19 关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691 __int128是128位，大概10^">
+<meta name="keywords" content="细节">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019牛客多校第三场">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/26/2019牛客多校第三场/index.html">
+<meta property="og:title" content="—__int128">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/01/—-int128/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="ѧϰ����Ⱥ͹��">
+<meta property="og:description" content="关于 __int128 众所周知: int是32位，范围大概为10^9 long long(g++编译器）， __int64（用%I64d控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19 关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691 __int128是128位，大概10^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T03:56:13.699Z">
+<meta property="og:updated_time" content="2019-08-01T14:12:18.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019牛客多校第三场">
-<meta name="twitter:description" content="ѧϰ����Ⱥ͹��">
+<meta name="twitter:title" content="—__int128">
+<meta name="twitter:description" content="关于 __int128 众所周知: int是32位，范围大概为10^9 long long(g++编译器）， __int64（用%I64d控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19 关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691 __int128是128位，大概10^">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>2019牛客多校第三场 | Huiqing&#39;s  blog</title>
+<title>—__int128 | Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,11 +279,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-2019牛客多校第三场" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-—-int128" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/07/26/2019牛客多校第三场/" class="article-date">
-      <time datetime="2019-07-26T03:55:18.000Z" itemprop="datePublished">2019-07-26</time>
+      <a href="/2019/08/01/—-int128/" class="article-date">
+      <time datetime="2019-08-01T12:51:56.000Z" itemprop="datePublished">2019-08-01</time>
 </a>
 
 
@@ -298,7 +298,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2019牛客多校第三场
+      —__int128
     </h1>
   
 
@@ -310,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/细节/">细节</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -320,7 +320,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h2>关于 __int128</h2>
+<p>众所周知:</p>
+<p><code>int</code>是32位，范围大概为10^9</p>
+<p><code>long long</code>(g++编译器）， <code>__int64</code>（用<code>%I64d</code>控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19</p>
+<p>关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691</p>
+<p><code>__int128</code>是128位，大概10^38范围，用于处理大数,但它能不能使用取决于编译器，大部分OJ是支持的，<strong>只有在Linux环境下能够使用</strong></p>
+<p><a id="more"></a></p>
+<p>gcc是不支持__int128这种数据类型的，比如在codeblocks 16.01也是无法编译的，但是提交到大部分OJ上是可以编译且能用的。C/C++标准IO是不认识__int128这种数据类型的，因此要自己实现IO，其他的运算，与int没有什么不同。</p>
+<p>代码:</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(__int128 &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">if</span>((ch=getchar())==<span class="string">'-'</span>) </span><br><span class="line">	f=-f;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">	x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">while</span>((ch=getchar())&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)</span><br><span class="line">        x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>;</span><br><span class="line">    x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(__int128 x)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">if</span>(x&lt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">        x=-x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">9</span>)</span><br><span class="line">        print(x/<span class="number">10</span>);</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于使用环境参考链接：https://blog.csdn.net/shadandeajian/article/details/81843805</p>
+
       
     </div>
     
@@ -328,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/01/—-int128/">—__int128</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-07-26, 11:55:18</p>
-        <p><span>最后更新:</span>2019-07-31, 11:56:13</p>
+        <p><span>发布时间:</span>2019-08-01, 20:51:56</p>
+        <p><span>最后更新:</span>2019-08-01, 22:12:18</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/26/2019牛客多校第三场/" title="2019牛客多校第三场">https://huiqing17ahu.github.io/2019/07/26/2019牛客多校第三场/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/26/2019牛客多校第三场/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/01/—-int128/" title="—__int128">https://huiqing17ahu.github.io/2019/08/01/—-int128/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/01/—-int128/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,15 +358,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/28/2019牛客多校第四场/">
-                    2019牛客多校第四场
+                <a href="/2019/08/01/线性基/">
+                    线性基
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/07/24/2019牛客多校第二场/">
-                    2019牛客多校第二场
+                <a href="/2019/08/01/2019牛客多校第五场/">
+                    2019牛客多校第五场
                 </a>
             </div>
         
@@ -367,7 +378,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">关于 __int128</span></a></li></ol>
         
     </div>
     <style>
@@ -403,7 +414,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"2019牛客多校第三场　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"—__int128　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -442,7 +453,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/28/2019牛客多校第四场/" title="上一篇: 2019牛客多校第四场">
+            <a href="/2019/08/01/线性基/" title="上一篇: 线性基">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -450,7 +461,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/07/24/2019牛客多校第二场/" title="下一篇: 2019牛客多校第二场">
+            <a href="/2019/08/01/2019牛客多校第五场/" title="下一篇: 2019牛客多校第五场">
                 <i class="fa fa-angle-right"></i>
             </a>
         
