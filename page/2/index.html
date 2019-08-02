@@ -708,6 +708,74 @@
 
 
   
+    <article id="post-2019牛客多校第一场" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/24/2019牛客多校第一场/" class="article-date">
+      <time datetime="2019-07-23T16:30:57.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2>A.Equivalent Prefixes</h2>
+<p>题目链接:<a href="https://ac.nowcoder.com/acm/contest/881/A" target="_blank" rel="noopener"></a></p>
+<p>题意：RMQ(u,l,r) 表示在数组u中的l到r的范围内最小值的下标，定义当RMQ(u,l,r)==RMQ(v,l,r) 时 数组u和v相等，求最大的p满足RMQ(a,l,r)==RMQ(b,l,r) <strong>(1&lt;=l&lt;r&lt;=p)</strong>.（即1~p下标间的<strong>任意相同子区间</strong>的最小值的下标相同）</p>
+<p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/07/24/2019牛客多校第一场/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2019牛客多校第二场" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -755,79 +823,6 @@
       
         <p class="article-more-link">
           <a href="/2019/07/24/2019牛客多校第二场/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019牛客多校第一场" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/24/2019牛客多校第一场/" class="article-date">
-      <time datetime="2019-07-23T16:30:57.000Z" itemprop="datePublished">2019-07-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a>
-    </h1>
-  
-
-		
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2>A.Equivalent Prefixes</h2>
-<p>题目链接:</p>
-<p>[]: https://ac.nowcoder.com/acm/contest/881/A</p>
-<p>题意：RMQ(u,l,r) 表示在数组u中的l到r的范围内最小值的下标，定义当RMQ(u,l,r)==RMQ(v,l,r) 时 数组u和v相等，求最大的p满足RMQ(a,l,r)==RMQ(b,l,r) <strong>(1&lt;=l&lt;r&lt;=p)</strong>.（即1~p下标间的<strong>任意相同子区间</strong>的最小值的下标相同）</p>
-<p>题解：</p>
-<p>大概，我们可以写一个暴力枚举，如下:</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;&lt;i;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(minindex(a,j,i)!=minindex(b,j,i))</span><br><span class="line">		&#123;</span><br><span class="line">			ans=i<span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>复杂度为O(n^2),显然太大，我们需要优化策略。</p>
-<p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/07/24/2019牛客多校第一场/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
