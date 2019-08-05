@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="ѧϰ����Ⱥ͹��">
-<meta name="keywords" content="数据结构">
+<meta name="description" content="一、整除分块">
+<meta name="keywords" content="数论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树状数组">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/02/树状数组/index.html">
+<meta property="og:title" content="莫比乌斯反演">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/05/莫比乌斯反演/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="ѧϰ����Ⱥ͹��">
+<meta property="og:description" content="一、整除分块">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-01T16:10:49.560Z">
+<meta property="og:updated_time" content="2019-08-05T08:17:49.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树状数组">
-<meta name="twitter:description" content="ѧϰ����Ⱥ͹��">
+<meta name="twitter:title" content="莫比乌斯反演">
+<meta name="twitter:description" content="一、整除分块">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>树状数组 | Huiqing&#39;s  blog</title>
+<title>莫比乌斯反演 | Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,11 +279,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-树状数组" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-莫比乌斯反演" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/02/树状数组/" class="article-date">
-      <time datetime="2019-08-01T16:10:32.000Z" itemprop="datePublished">2019-08-02</time>
+      <a href="/2019/08/05/莫比乌斯反演/" class="article-date">
+      <time datetime="2019-08-04T16:06:24.000Z" itemprop="datePublished">2019-08-05</time>
 </a>
 
 
@@ -298,7 +298,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      树状数组
+      莫比乌斯反演
     </h1>
   
 
@@ -310,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -320,7 +320,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h2>一、整除分块</h2>
+<p><a id="more"></a></p>
+<h2>二、前缀和</h2>
+<h2>三、莫比乌斯函数</h2>
+<h2>四、莫比乌斯反演</h2>
+<h2>五、习题</h2>
+
       
     </div>
     
@@ -328,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/02/树状数组/">树状数组</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/05/莫比乌斯反演/">莫比乌斯反演</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-08-02, 00:10:32</p>
-        <p><span>最后更新:</span>2019-08-02, 00:10:49</p>
+        <p><span>发布时间:</span>2019-08-05, 00:06:24</p>
+        <p><span>最后更新:</span>2019-08-05, 16:17:49</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/02/树状数组/" title="树状数组">https://huiqing17ahu.github.io/2019/08/02/树状数组/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/02/树状数组/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/05/莫比乌斯反演/" title="莫比乌斯反演">https://huiqing17ahu.github.io/2019/08/05/莫比乌斯反演/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/05/莫比乌斯反演/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,8 +354,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/02/前缀和/">
-                    前缀和
+                <a href="/2019/08/01/笛卡尔树/">
+                    笛卡尔树
                 </a>
             </div>
         
@@ -361,7 +367,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、整除分块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">二、前缀和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">三、莫比乌斯函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">四、莫比乌斯反演</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">五、习题</span></a></li></ol>
         
     </div>
     <style>
@@ -397,7 +403,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"树状数组　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"莫比乌斯反演　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -442,13 +448,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/02/前缀和/" title="下一篇: 前缀和">
+            <a href="/2019/08/01/笛卡尔树/" title="下一篇: 笛卡尔树">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/树状数组/">树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/前缀和/">前缀和</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/莫队/">莫队</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/卡特兰数/">卡特兰数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/博弈论/">博弈论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/主席树/">主席树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/线段树/">线段树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/线性基/">线性基</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/2019牛客多校第四场/">2019牛客多校第四场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论基础/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/01/DP/">DP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/并查集/">并查集</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/05/莫比乌斯反演/">莫比乌斯反演</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/线性基/">线性基</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/2019牛客多校第四场/">2019牛客多校第四场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论基础/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/23/树状数组/">树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/线段树/">线段树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/15/主席树/">主席树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/01/DP/">DP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/22/莫队/">莫队</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/博弈论/">博弈论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/卡特兰数/">卡特兰数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/并查集/">并查集</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li></ul>
 
 
 
