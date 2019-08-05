@@ -202,7 +202,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构-树/">数据结构,树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
                     </div>
                 </section>
                 
@@ -225,7 +225,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">To be a cool ACMer</div>
+                    <div id="js-aboutme">这是一个正在建的blog...功能尚不完善，敬请谅解~</div>
                 </section>
                 
             </div>
@@ -328,62 +328,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DP" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/02/DP/" class="article-date">
-      <time datetime="2019-08-01T16:06:48.000Z" itemprop="datePublished">2019-08-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/DP/">DP</a>
-    </h1>
-  
-
-		
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>
@@ -625,66 +569,6 @@
 
 
   
-    <article id="post-并查集" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/02/并查集/" class="article-date">
-      <time datetime="2019-08-01T16:01:52.000Z" itemprop="datePublished">2019-08-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/并查集/">并查集</a>
-    </h1>
-  
-
-		
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-主席树" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -835,6 +719,91 @@
     <div class="article-entry" itemprop="articleBody">
       
           
+        <h2>笛卡尔树</h2>
+<p>是一种特定的<strong>二叉树</strong>结构，可由数列构造，从数列中构造一棵笛卡尔树可以<strong>线性时间</strong>完成</p>
+<p>和二叉搜索树（treap)结构上是相同的</p>
+<p>性质：</p>
+<ul>
+<li>
+<p>结点<strong>唯一对应</strong>于数列元素</p>
+<p>即数列中的每个元素都对应于树中某个唯一结点，树结点也对应于数列中的某个唯一元素</p>
+</li>
+<li>
+<p><strong>中序遍历</strong>笛卡尔树即可得到原数列</p>
+<p>即任意树结点的左子树结点所对应的数列元素下标比该结点所对应元素的下标小，右子树结点所对应数列元素下标比该结点所对应元素下标大。</p>
+</li>
+<li>
+<p>树结构存在<strong>堆序性质</strong></p>
+<p>即任意树结点所对应数值大/小于其左、右子树内任意结点对应数值</p>
+</li>
+</ul>
+<p><img src="http://image.mamicode.com/info/201801/20180120181033131540.jpg" alt></p>
+<p>暴力建treap，复杂度可能是O(nlog n),而用笛卡尔树建，则是O(n)的</p>
+<p><strong>注意：<strong>笛卡尔树建树，插入的元素必须保证</strong>key值递增</strong>，而<strong>val值是可以乱</strong>的</p>
+<h4>笛卡尔树的构造：</h4>
+<ol>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-欧拉函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/01/欧拉函数/" class="article-date">
+      <time datetime="2019-08-01T15:34:43.000Z" itemprop="datePublished">2019-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/欧拉函数/">欧拉函数</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
         
       
     </div>
@@ -844,6 +813,66 @@
       
 
       
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-单调栈" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/01/单调栈/" class="article-date">
+      <time datetime="2019-08-01T15:34:05.000Z" itemprop="datePublished">2019-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/单调栈/">单调栈</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Huiqq">
+
+
+
+<meta name="description" content="树形结构 基本术语：  结点: 数据元素 + 若干指向子树的分支 **结点的度:**分支的个数 树的度:树中所有结点的度的最大值 结点的层次:假设根结点的层次为1,第k层的结点的子树根结点（也就是它的下一层）的层次为k+1 树的深度：树中叶结点所在的最大层次     有序树和无序树的区别：子树之间是否存在次序关系，即左右子树交换后还是不是同一棵树   **森林：**是m（m≥0）棵互不相交的树的集">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2018/06/02/树/index.html">
+<meta property="og:site_name" content="Huiqing&#39;s  blog">
+<meta property="og:description" content="树形结构 基本术语：  结点: 数据元素 + 若干指向子树的分支 **结点的度:**分支的个数 树的度:树中所有结点的度的最大值 结点的层次:假设根结点的层次为1,第k层的结点的子树根结点（也就是它的下一层）的层次为k+1 树的深度：树中叶结点所在的最大层次     有序树和无序树的区别：子树之间是否存在次序关系，即左右子树交换后还是不是同一棵树   **森林：**是m（m≥0）棵互不相交的树的集">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/iSfUDZMIcwGBTqefVkerCYxmsj*6t7BltYAW.DSe*qc!/b/dDQBAAAAAAAA&bo=qQO8AgAAAAADBzY!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/51qHrA*e1f.9XxUhnkmh0q4rscQEe5hRpQ0iVbcI0N8!/b/dL4AAAAAAAAA&bo=nAO0AgAAAAADBws!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/gsNF8f6r0mhXgnLVrVU3yxyzDXkaFQ1jKKfj1h.tTuU!/b/dDMBAAAAAAAA&bo=gwOAAgAAAAADFzA!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/*1CxID4NU9JMHCcWF47OeX4L3vYrnsD4tAU8xJLQp1A!/b/dDQBAAAAAAAA&bo=cwMNAQAAAAADB14!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/3TH2vcjYEBeLfQMp9zWjpDp4kIea27wga5WiPnrgpUA!/b/dDUBAAAAAAAA&bo=sQPfAQAAAAADB04!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/7pvQqzXj*7dpnvq2Dwzd4Cjim2Dm041rLNit6qVgEZ0!/b/dL4AAAAAAAAA&bo=YwMFAQAAAAADB0Y!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V12VybPR2NzEq4/Y1FcZHIXZmvAv8hbKT*GQE.Zyf0*3tjvYGdrgYj6RbA!/b/dL4AAAAAAAAA&ek=1&kp=1&pt=0&bo=oQONAgAAAAADFx8!&tl=1&vuin=1211552733&tm=1564909200&sce=60-1-1&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/ZpCYP2Fi9jId.4nNmsilHIIyV*DFqpefsWl8jZhpmN4!/b/dEABAAAAAAAA&bo=vgMgAgAAAAADB70!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/T2uJgoUu72KoeFCqRBwcwXsXPXhKr7MMSUPS8K8*QRo!/b/dLYAAAAAAAAA&bo=qwMDAQAAAAADB4g!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/wNYblYeqQSTI.zNKNc037R9f87KSu2y*MDzJHqs5f70!/b/dFMBAAAAAAAA&bo=pwOGAgAAAAADBwI!&rf=viewer_4">
+<meta property="og:updated_time" content="2019-08-04T11:02:57.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树">
+<meta name="twitter:description" content="树形结构 基本术语：  结点: 数据元素 + 若干指向子树的分支 **结点的度:**分支的个数 树的度:树中所有结点的度的最大值 结点的层次:假设根结点的层次为1,第k层的结点的子树根结点（也就是它的下一层）的层次为k+1 树的深度：树中叶结点所在的最大层次     有序树和无序树的区别：子树之间是否存在次序关系，即左右子树交换后还是不是同一棵树   **森林：**是m（m≥0）棵互不相交的树的集">
+<meta name="twitter:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/iSfUDZMIcwGBTqefVkerCYxmsj*6t7BltYAW.DSe*qc!/b/dDQBAAAAAAAA&bo=qQO8AgAAAAADBzY!&rf=viewer_4">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Huiqing&#39;s  blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>树 | Huiqing&#39;s  blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/hi.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Huiqq</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">It&#39;s a warm sunny day.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:563481652@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/HuiQing17ahu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/xin-hai-yao-zhu/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" href="https://segmentfault.com/u/pickpikaa" title="SegmentFault"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构-树/">数据结构,树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://www.csdn.net/">CSDN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">这是一个正在建的blog...功能尚不完善，敬请谅解~</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Huiqq</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/hi.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Huiqq</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">It&#39;s a warm sunny day.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:563481652@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/HuiQing17ahu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/xin-hai-yao-zhu/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" target="_blank" href="https://segmentfault.com/u/pickpikaa" title="SegmentFault"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-树" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/02/树/" class="article-date">
+      <time datetime="2018-06-01T16:05:36.000Z" itemprop="datePublished">2018-06-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树
+    </h1>
+  
+
+		
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2>树形结构</h2>
+<h4>基本术语：</h4>
+<ul>
+<li><strong>结点:</strong> 数据元素 + 若干指向子树的分支</li>
+<li>**结点的度:**分支的个数</li>
+<li><strong>树的度:<strong>树中所有结点的度的</strong>最大值</strong></li>
+<li><strong>结点的层次:<strong>假设根结点的层次为1,第k层的结点的</strong>子树根结点</strong>（也就是它的下一层）的层次为k+1</li>
+<li><strong>树的深度</strong>：树中叶结点所在的最大层次</li>
+</ul>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/iSfUDZMIcwGBTqefVkerCYxmsj*6t7BltYAW.DSe*qc!/b/dDQBAAAAAAAA&amp;bo=qQO8AgAAAAADBzY!&amp;rf=viewer_4" alt></p>
+<ul>
+<li>
+<p><strong>有序树和无序树</strong>的区别：子树之间是否存在次序关系，即左右子树交换后还是不是同一棵树</p>
+</li>
+<li>
+<p>**森林：**是m（m≥0）棵互不相交的树的集合</p>
+</li>
+<li>
+<p><strong>树形结构的其他表示方法：</strong></p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/51qHrA*e1f.9XxUhnkmh0q4rscQEe5hRpQ0iVbcI0N8!/b/dL4AAAAAAAAA&amp;bo=nAO0AgAAAAADBws!&amp;rf=viewer_4" alt></p>
+</li>
+</ul>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/gsNF8f6r0mhXgnLVrVU3yxyzDXkaFQ1jKKfj1h.tTuU!/b/dDMBAAAAAAAA&amp;bo=gwOAAgAAAAADFzA!&amp;rf=viewer_4" alt></p>
+<ul>
+<li>
+<p><strong>树形结构和线性结构的区别：<strong>除第一个结点和最后一个结点外的</strong>中间结点</strong>有一个前驱多个后继，而线性结构是一个前驱一个后继</p>
+</li>
+<li>
+<p><strong>树的存储结构：</strong></p>
+<p>(1)双亲表示法:  data|parent</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 100 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> /*结点的类型*/ </span></span><br><span class="line"><span class="class">&#123;</span> 	datatype data; </span><br><span class="line">	<span class="keyword">int</span> parent; <span class="comment">/*结点双亲的下标*/</span> </span><br><span class="line">&#125; node; </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tree</span> &#123;</span> </span><br><span class="line">	node treelist[MAXSIZE];<span class="comment">/*存放结点的数组*/</span> </span><br><span class="line">	<span class="keyword">int</span> length, root ; <span class="comment">/* 树中实际所含结点的 个数及根结点的位置*/</span> </span><br><span class="line">&#125; tree;</span><br></pre></td></tr></table></figure></p>
+<p>(2)孩子表示法:有<strong>指针、数组、链表</strong>三种方式表示法</p>
+<p>1、指针式</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> m 3 <span class="comment">/*树的度数*/</span> </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="comment">/*结点的类型*/</span> </span><br><span class="line">	datatype data; </span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">child</span>[<span class="title">m</span>];</span><span class="comment">/*指向子女的指针数组*/</span> </span><br><span class="line">&#125; node,* tree; </span><br><span class="line">tree root;</span><br></pre></td></tr></table></figure></p>
+<p>2、数组式</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> m 3 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 20 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> </span><br><span class="line">   datatype data; </span><br><span class="line">   <span class="keyword">int</span> child[m]; </span><br><span class="line">&#125; treenode; </span><br><span class="line">treenode tree[MAXSIZE]; </span><br><span class="line"><span class="keyword">int</span> root ; </span><br><span class="line"><span class="keyword">int</span> length;</span><br></pre></td></tr></table></figure></p>
+<p>3、链表式</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">define</span> MAXSIZE 50 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">chnode</span> &#123;</span> <span class="comment">/*孩子结点的类型*/</span> </span><br><span class="line">	<span class="keyword">int</span> child; </span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">chnode</span> *<span class="title">next</span>;</span> </span><br><span class="line">&#125; chnode, * chpoint;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="comment">/* 树中每个结点的类型*/</span> </span><br><span class="line">	datatype data; </span><br><span class="line">	chpoint firstchild;<span class="comment">/*指向第一个子女的指针*/</span> </span><br><span class="line">	&#125; node; </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="comment">/*树的类型*/</span> </span><br><span class="line">	node treelist [MAXSIZE]; </span><br><span class="line">	<span class="keyword">int</span> length, root； </span><br><span class="line">&#125; tree;</span><br></pre></td></tr></table></figure></p>
+<p>（3）孩子兄弟表示法</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype;<span class="comment">/*树中结点值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="comment">/*树中每个结点的类型*/</span> </span><br><span class="line">	datatype data; </span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> * <span class="title">firstchild</span>, *<span class="title">rightsibling</span>;</span> </span><br><span class="line">&#125; node, * pnode; </span><br><span class="line">pnode root; <span class="comment">/*指向树根结点的指针*/</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p><strong>树的遍历：</strong>(指针式孩子表示法)</p>
+<p>(1)前序遍历 <strong>root--left--right</strong></p>
+<p>(2)后序遍历 <strong>left--right--root</strong></p>
+<p>(3)层次遍历</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> m 3</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">ll mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">child</span>[<span class="title">m</span>];</span> </span><br><span class="line">&#125;node,*tree;</span><br><span class="line">tree root;<span class="comment">//tree是node*的 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create</span><span class="params">(tree *p)</span><span class="comment">//前序遍历建树 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">if</span>((ch=getchar())==<span class="string">'#'</span>)</span><br><span class="line">	*p=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		*p=(tree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">		(*p)-&gt;data=ch;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">		&#123;</span><br><span class="line">			create(&amp;(*p)-&gt;child[i]); </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(tree &amp;p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,p-&gt;data);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">			preorder(p-&gt;child[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(tree p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">			postorder(p-&gt;child[i]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">levelorder</span><span class="params">(tree t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;tree&gt;q;</span><br><span class="line">	q.push(t);</span><br><span class="line">	tree p;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		p=q.front();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,p-&gt;data);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;child[i])</span><br><span class="line">			q.push(p-&gt;child[i]);</span><br><span class="line">		</span><br><span class="line">		q.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    create(&amp;root);</span><br><span class="line">    preorder(root);<span class="comment">//ABCEFHIGD</span></span><br><span class="line">    <span class="comment">//postorder(root);//BEHIFGCDA</span></span><br><span class="line">    <span class="comment">//levelorder(root);//ABCDEFGHI</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/*1CxID4NU9JMHCcWF47OeX4L3vYrnsD4tAU8xJLQp1A!/b/dDQBAAAAAAAA&amp;bo=cwMNAQAAAAADB14!&amp;rf=viewer_4" alt></p>
+</li>
+</ul>
+<h2>二叉树</h2>
+<ul>
+<li>
+<p><strong>特征：</strong></p>
+<p>(1)二叉树中每个非空结点最多只有两个子女.</p>
+<p>(2)二叉树中结点的子树要区分左子树和右子树， 即使在结点只有一棵子树的情况下也要明确指 出是左子树还是右子树。</p>
+</li>
+<li>
+<p><strong>性质:</strong></p>
+<p><strong>(1)一棵非空二叉树的第i层上至多有2^i-1个结点 （i≥1）</strong></p>
+<p><strong>(2)深度为h的二叉树至多有2^h-1个结点（h&gt;1）</strong></p>
+<p><strong>(3)对于任何一棵二叉树T，如果其终端结点数(即 叶结点数)为n0，度为2的结点数为n2，则n0=n2+1。</strong></p>
+<blockquote>
+<p>证明：</p>
+<p>假设二叉树中总的结点个数为n ，度为1的结点个数为n1，则有： n=n0+n1+n2</p>
+<p>又由于在二叉树中除根结点外，其它结点均通过一条树枝且仅通过一条树枝与其父母结点相连，即除根结点外，其它结点与树中的树枝存在一一对应的关系；</p>
+<p>而二叉树中树枝的总条数为n1+2<em>n2，因而二叉树总结点的个数为： n=n1+2</em>n2+1 于是有： n0+n1+n2=n1+2*n2+1</p>
+<p>显然n0=n2+1成立。</p>
+</blockquote>
+<p>(4)<strong>对于具有n个结点的完全二叉树，如果按照从上到下、同一层次上的结点按从左到右的顺序对二叉树中的所有结点从1开始顺序编号，则对于序号为i的结点，有：</strong></p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/3TH2vcjYEBeLfQMp9zWjpDp4kIea27wga5WiPnrgpUA!/b/dDUBAAAAAAAA&amp;bo=sQPfAQAAAAADB04!&amp;rf=viewer_4" alt></p>
+</li>
+<li>
+<p>**满二叉树：**二叉树中==所有终端结点均位于同一层次==， 而其它非终端结点的度数均为2。(范围更小)</p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/7pvQqzXj*7dpnvq2Dwzd4Cjim2Dm041rLNit6qVgEZ0!/b/dL4AAAAAAAAA&amp;bo=YwMFAQAAAAADB0Y!&amp;rf=viewer_4" alt></p>
+</li>
+<li>
+<p><strong>完全二叉树：<strong>二叉树扣除其最大层次那层后即成为一棵满二叉树，且层次最大那层的所有结点均</strong>向左靠齐</strong>。即完全二叉树中只有<strong>最下面的两层结点的度数可以小于2</strong>，且<strong>最下面一层的结点都集中在该层最左边</strong>的若干位置上。(如图二)  （范围更大）</p>
+</li>
+<li>
+<p>**注意:**满二叉树一定是完全二叉树，但完全二叉树不一定是满二叉树。</p>
+<h3>一般二叉树的存储结构</h3>
+<p><img src="http://a3.qpic.cn/psb?/V12VybPR2NzEq4/Y1FcZHIXZmvAv8hbKT*GQE.Zyf0*3tjvYGdrgYj6RbA!/b/dL4AAAAAAAAA&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=oQONAgAAAAADFx8!&amp;tl=1&amp;vuin=1211552733&amp;tm=1564909200&amp;sce=60-1-1&amp;rf=viewer_4" alt></p>
+</li>
+</ul>
+<p><strong>一般二叉树顺序存储：</strong></p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 20 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span> </span><br><span class="line">    datatype data; </span><br><span class="line">    <span class="keyword">int</span> lchild,rchild; </span><br><span class="line">&#125; node; <span class="comment">/*二叉树结点的类型*/</span> </span><br><span class="line">node tree[MAXSIZE]; </span><br><span class="line"><span class="keyword">int</span> n; <span class="comment">/*树中实际所含结点的个数*/</span> </span><br><span class="line"><span class="keyword">int</span> root; <span class="comment">/*存放根结点的下标*/</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>带双亲指示的二叉树顺序存储:</strong></p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 20 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line">    datatype data; </span><br><span class="line">    <span class="keyword">int</span> lchild,rchild; </span><br><span class="line">    <span class="keyword">int</span> parent; <span class="comment">/*存放双亲结点的下标*/</span> </span><br><span class="line">&#125; node; <span class="comment">/*二叉树结点的类型*/</span> </span><br><span class="line">node tree[MAXSIZE]; </span><br><span class="line"><span class="keyword">int</span> n; <span class="comment">/*树中实际所含结点的个数*/</span> </span><br><span class="line"><span class="keyword">int</span> root; <span class="comment">/*存放根结点的下标*/</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/ZpCYP2Fi9jId.4nNmsilHIIyV*DFqpefsWl8jZhpmN4!/b/dEABAAAAAAAA&amp;bo=vgMgAgAAAAADB70!&amp;rf=viewer_4" alt></p>
+<p><strong>链式存储方式下二叉树结点数据结构：</strong></p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点属性值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span> <span class="comment">/*二叉树结点的类型*/</span> </span><br><span class="line">    datatype data; </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span> </span><br><span class="line">&#125; bintnode; </span><br><span class="line"><span class="keyword">typedef</span> bintnode* bintree; </span><br><span class="line">bintree root;</span><br></pre></td></tr></table></figure></p>
+<p><strong>链式存储方式下带双亲指针的二叉树结点数据结构：</strong></p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> datatype; <span class="comment">/*结点属性值的类型*/</span> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span> <span class="comment">/*二叉树结点的类型*/</span> </span><br><span class="line">    datatype data; </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">parent</span>;</span> <span class="comment">/*指向双亲的指针*/</span> </span><br><span class="line">&#125; bintnode; </span><br><span class="line"><span class="keyword">typedef</span> bintnode *bintree; bintree root; <span class="comment">/*指向二叉树根结点的指针*/</span></span><br></pre></td></tr></table></figure></p>
+<h3>二叉树的遍历</h3>
+<ul>
+<li>
+<p><strong>遍历方式</strong></p>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/T2uJgoUu72KoeFCqRBwcwXsXPXhKr7MMSUPS8K8*QRo!/b/dLYAAAAAAAAA&amp;bo=qwMDAQAAAAADB4g!&amp;rf=viewer_4" alt></p>
+</li>
+</ul>
+<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/wNYblYeqQSTI.zNKNc037R9f87KSu2y*MDzJHqs5f70!/b/dFMBAAAAAAAA&amp;bo=pwOGAgAAAAADBwI!&amp;rf=viewer_4" alt></p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> m 3</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">ll mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span> </span><br><span class="line">&#125;bintnode;</span><br><span class="line"><span class="keyword">typedef</span> bintnode* bintree;</span><br><span class="line">bintree root;<span class="comment">//tree是node*的 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create</span><span class="params">(bintree *t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">if</span>((ch=getchar())==<span class="string">' '</span>)</span><br><span class="line">	*t=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		*t=(bintnode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(bintnode));<span class="comment">//生成二叉树的根节点</span></span><br><span class="line">		(*t)-&gt;data=ch;</span><br><span class="line">		create(&amp;(*t)-&gt;lchild);<span class="comment">//递归实现左子树</span></span><br><span class="line">		create(&amp;(*t)-&gt;rchild);<span class="comment">//递归实现右子树 	</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*递归版遍历*/</span> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(bintree t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(t)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,t-&gt;data);</span><br><span class="line">		preorder(t-&gt;lchild);</span><br><span class="line">		preorder(t-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">midorder</span><span class="params">(bintree t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(t)</span><br><span class="line">	&#123;</span><br><span class="line">		midorder(t-&gt;lchild);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,t-&gt;data);</span><br><span class="line">		midorder(t-&gt;rchild);</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(bintree t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(t)</span><br><span class="line">	&#123;</span><br><span class="line">		postorder(t-&gt;lchild);</span><br><span class="line">		postorder(t-&gt;rchild);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,t-&gt;data);</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*非递归版*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    create(&amp;root);</span><br><span class="line">    preorder(root);</span><br><span class="line">    midorder(root);</span><br><span class="line">    postorder(root);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>//这里还应该写一个二叉搜索树的实现</strong></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/06/02/树/">树</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
+        <p><span>发布时间:</span>2018-06-02, 00:05:36</p>
+        <p><span>最后更新:</span>2019-08-04, 19:02:57</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/02/树/" title="树">https://huiqing17ahu.github.io/2018/06/02/树/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2018/06/02/树/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/08/04/平衡二叉树/">
+                    平衡二叉树
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">树形结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本术语：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">一般二叉树的存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.2.</span> <span class="toc-text">二叉树的遍历</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"树　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTUxNy8yMjAyOQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/08/04/平衡二叉树/" title="上一篇: 平衡二叉树">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/树状数组/">树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/前缀和/">前缀和</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/莫队/">莫队</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/卡特兰数/">卡特兰数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/博弈论/">博弈论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/主席树/">主席树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/线段树/">线段树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/线性基/">线性基</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/2019牛客多校第四场/">2019牛客多校第四场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/2019牛客多校第三场/">2019牛客多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第二场/">2019牛客多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论基础/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/01/DP/">DP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/02/并查集/">并查集</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 Huiqq
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 7;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>
