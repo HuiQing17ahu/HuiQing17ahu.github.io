@@ -15,24 +15,20 @@
 
 
 
-<meta name="description" content="欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
-<meta name="keywords" content="数论">
+<meta name="description" content="一、概率论 **概率空间：**由三元组(Ω,F,P)定义：   Ω是所有可能输出（样本点）的非空集合,称作样本空间.   F是样本空间Ω幂集的非 空子 集， $F\subseteq 2^{\varOmega}$,称作事件空间.   P称为概率 ,是一个从F到实数域R的函数.每个事件都被此函数赋予一个0和1之间的概率值. eg.抛六面的色子，所有可能输出 (样本空间)Ω={1,2,3,4,5,6}.">
+<meta name="keywords" content="概率论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欧拉函数">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/01/欧拉函数/index.html">
+<meta property="og:title" content="概率">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/09/概率/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
+<meta property="og:description" content="一、概率论 **概率空间：**由三元组(Ω,F,P)定义：   Ω是所有可能输出（样本点）的非空集合,称作样本空间.   F是样本空间Ω幂集的非 空子 集， $F\subseteq 2^{\varOmega}$,称作事件空间.   P称为概率 ,是一个从F到实数域R的函数.每个事件都被此函数赋予一个0和1之间的概率值. eg.抛六面的色子，所有可能输出 (样本空间)Ω={1,2,3,4,5,6}.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/ChCQIpSE94Owf2Fx5sw*J3tLNSwubyNnuT3foUdQdeI!/b/dEYBAAAAAAAA&bo=jAM*AQAAAAADF4M!&rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/Lf8LkRso7LUtS5qLxNaZkxqkgGqAqpdfQNDkDeGA5eM!/b/dFMBAAAAAAAA&bo=KQR8AgAAAAADJ1E!&rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/4mWtFnJ83KCldqjIGEEidxQ4dvCWtfAiC0t0SxDi3ac!/b/dL8AAAAAAAAA&bo=8QNjAgAAAAADF6E!&rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/YFB0upl80RQMhrfvJmZUfz2gt5HSVoIVQ5OWHInfUkc!/b/dLYAAAAAAAAA&bo=*QPxAQAAAAADFzw!&rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/GR8EAmVB3AWEky.FB8ft52snLtxLyHs3pOIbsLHHnho!/b/dIMAAAAAAAAA&bo=MAQhAgAAAAADFyU!&rf=viewer_4">
-<meta property="og:updated_time" content="2019-08-09T05:15:10.026Z">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/1.png">
+<meta property="og:updated_time" content="2019-08-09T12:31:52.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欧拉函数">
-<meta name="twitter:description" content="欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
-<meta name="twitter:image" content="http://m.qpic.cn/psb?/V12VybPR2NzEq4/ChCQIpSE94Owf2Fx5sw*J3tLNSwubyNnuT3foUdQdeI!/b/dEYBAAAAAAAA&bo=jAM*AQAAAAADF4M!&rf=viewer_4">
+<meta name="twitter:title" content="概率">
+<meta name="twitter:description" content="一、概率论 **概率空间：**由三元组(Ω,F,P)定义：   Ω是所有可能输出（样本点）的非空集合,称作样本空间.   F是样本空间Ω幂集的非 空子 集， $F\subseteq 2^{\varOmega}$,称作事件空间.   P称为概率 ,是一个从F到实数域R的函数.每个事件都被此函数赋予一个0和1之间的概率值. eg.抛六面的色子，所有可能输出 (样本空间)Ω={1,2,3,4,5,6}.">
+<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/1.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -64,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>欧拉函数 | Huiqing&#39;s  blog</title>
+<title>概率 | Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +281,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-欧拉函数" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-概率" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/01/欧拉函数/" class="article-date">
-      <time datetime="2019-08-01T15:34:43.000Z" itemprop="datePublished">2019-08-01</time>
+      <a href="/2019/08/09/概率/" class="article-date">
+      <time datetime="2019-08-09T06:10:06.000Z" itemprop="datePublished">2019-08-09</time>
 </a>
 
 
@@ -304,7 +300,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      欧拉函数
+      概率
     </h1>
   
 
@@ -316,7 +312,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概率论/">概率论</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -326,46 +322,97 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2>欧拉函数</h2>
-<ul>
-<li>给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。</li>
-<li>φ(1)=1</li>
-<li>$\varphi \left( n \right) =\varSigma
-_{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $</li>
-</ul>
-<p><a id="more"></a></p>
-<blockquote>
-<p><strong>完全余数集合</strong></p>
-<p>Zn = { 不大于n 且和n 互质的数}</p>
-<p>|Zn| ＝φ(n)</p>
-</blockquote>
-<ul>
+        <h2>一、概率论</h2>
+<p>**概率空间：**由三元组(Ω,F,P)定义：</p>
+<ol>
 <li>
-<p><strong>性质</strong></p>
-<p>(1)p为素数 ，则 φ( p)=p -1</p>
-<blockquote>
-<p>质数与小于它的每一个，都构成互关系。 质数与小于它的每一个，都构成互关系。</p>
-</blockquote>
-<p>(2)p为素数，正整数$n=p^k$，则$\varphi \left( n \right) =p^k-p^{k-1}$</p>
-<p>​    或者写作$\varphi \left( n \right) =p^{k-1}\left(
-p-1 \right) =p^k\left( 1-\frac{1}{p} \right) $</p>
-<blockquote>
-<p>证明：</p>
-<p>小于$p^k$的正整数个数为$p^k-1$个，其中与$p^k$不互质的正整数有{p,2p,3p,4p,...,$(p^{k-1}-1)p$},共计$p^{k-1}-1$个</p>
-<p>所以$\varphi \left( n \right) =p^k-1-\left( p^{k-1}-1
-\right) =p^k-p^{k-1}$</p>
-</blockquote>
-<p>（3）两个素数 p,q ,$n=p*q$，则 $\varphi \left( n \right) =\left( p-1
-\right) *\left( q-1 \right) $</p>
-<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/ChCQIpSE94Owf2Fx5sw*J3tLNSwubyNnuT3foUdQdeI!/b/dEYBAAAAAAAA&amp;bo=jAM*AQAAAAADF4M!&amp;rf=viewer_4" alt></p>
-<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/Lf8LkRso7LUtS5qLxNaZkxqkgGqAqpdfQNDkDeGA5eM!/b/dFMBAAAAAAAA&amp;bo=KQR8AgAAAAADJ1E!&amp;rf=viewer_4" alt></p>
-<p>(4)当b时质数,a%b=0,则$\varphi \left( ab \right) =\varphi \left(
-a \right) b$</p>
-<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/4mWtFnJ83KCldqjIGEEidxQ4dvCWtfAiC0t0SxDi3ac!/b/dL8AAAAAAAAA&amp;bo=8QNjAgAAAAADF6E!&amp;rf=viewer_4" alt></p>
-<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/YFB0upl80RQMhrfvJmZUfz2gt5HSVoIVQ5OWHInfUkc!/b/dLYAAAAAAAAA&amp;bo=*QPxAQAAAAADFzw!&amp;rf=viewer_4" alt></p>
-<p><img src="http://m.qpic.cn/psb?/V12VybPR2NzEq4/GR8EAmVB3AWEky.FB8ft52snLtxLyHs3pOIbsLHHnho!/b/dIMAAAAAAAAA&amp;bo=MAQhAgAAAAADFyU!&amp;rf=viewer_4" alt></p>
+<p>Ω是所有可能输出（样本点）的非空集合,称作<strong>样本空间</strong>.</p>
 </li>
-</ul>
+<li>
+<p>F是样本空间Ω幂集的非 空子 集， $F\subseteq 2^{\varOmega}$,称作<strong>事件空间</strong>.</p>
+</li>
+<li>
+<p>P称为概率 ,是一个从F到实数域R的函数.每个事件都被此函数赋予一个0和1之间的概率值.</p>
+<p>eg.抛六面的色子，所有可能输出 (样本空间)Ω={1,2,3,4,5,6}.</p>
+<p>​     若事件是抛出奇或偶数，则事件空间F={∅,{1,3,5},{2,4,6},Ω}</p>
+</li>
+</ol>
+<p><a id="more"></a></p>
+<p><strong>概率的定义:</strong></p>
+<p>设事件空间F的样本空间为Ω.若按照某种方法,对F的每一事件A赋予一个实数P(A),且满足以下公理:</p>
+<ol>
+<li>
+<p>非负性</p>
+<p>对于所有A∈F,P(A)≥0</p>
+</li>
+<li>
+<p>规范性</p>
+<p>P(Ω)=1</p>
+</li>
+<li>
+<p>可列可加性</p>
+<p>对于两两互不相容的可列无穷多个事件$A_1$,$A_2$,...,$A_n$有P($A_1$∪$A_2$∪...∪$A_n$)=P($A_1$)+P($A_2$)+...+</p>
+<p>P($A_n$)</p>
+</li>
+</ol>
+<p>则称实数P(A)为事件A的概率</p>
+<p><strong>常用的概率公式</strong></p>
+<ol>
+<li>
+<p>概率的基本性质</p>
+<p>P(∅)=0,P(Ω)=1</p>
+</li>
+<li>
+<p>联合概率</p>
+</li>
+</ol>
+<p>事件A和B同时发生的概率P(AB)</p>
+<ol start="3">
+<li>
+<p>互斥(不相容)事件</p>
+<p>A∩B=∅→P(AB)=0</p>
+</li>
+<li>
+<p>逆事件</p>
+<p>$A\cap \bar{A}=∅$且$A\cup \overline{A}=\varOmega $</p>
+</li>
+</ol>
+<p><strong>加法公式</strong></p>
+<p>P(A+B)=P(A)+P(B)-P(AB)</p>
+<p>P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)</p>
+<p><strong>减法公式</strong></p>
+<p>P(A-B)=P(A)-P(AB)</p>
+<p><strong>乘法公式</strong></p>
+<p>P(AB)=P(A)P(B|A)</p>
+<p>P($A_1A_2...A_n$)=P($A_1$)P($A_2|A_1$)P($A_3$|$A_1A_2$)...P($A_n$|$A_1...A_{n-1}$)</p>
+<p><strong>条件概率</strong></p>
+<p>P(B|A)=P(AB)/P(A)为事件A发生情况下，事件B发生的条件概率</p>
+<blockquote>
+<p>书桌有 8个抽屉，编号 1~8 号。我每次拿到一份文件，都会把随机 放到某一个抽屉中。但是，我非常粗心有1/5的概率会忘记把文件放到抽屉里，这份文件就会丢失。现在我要寻找某将依次打开8个抽屉寻找，请计算：
+1）假如我打开第 1个抽屉 ，没有找到文件，那么这份在剩余的的概率：7/9</p>
+<p>2）假如我 打开了前 4个抽屉，没有找到文件，那么这份在剩余的屉的 概率： 4（剩下四个）/6（包括另外两个打不开的）=2/3</p>
+<p>3）假如我打开了前7个抽屉，没有找到文件，那么这份在最后一个 抽屉 的概率： 1/3</p>
+<p>思路 ：假设增加 2个不能打开的抽屉，因为1/5的遗忘概率而丢失文件，是放到了这 2个抽屉里。（这里是凑出来的？）那么计算概率，就是在 10 个抽屉里算。</p>
+</blockquote>
+<blockquote>
+<p>有甲乙两个篮球运动员，假设他们的罚球命中率分别为 0.6 和 0.5，现在两人各罚球一次，请计算：</p>
+<p>1）两人都命中的概率：P(A)*P(B)=0.6 *0.5=0.3</p>
+<p>2)只有一人命中的概率：P($\overline{A}$)*P(B)+P($\overline{B}$) *P(A)=0.4 *0.5+0.5 *0.6=0.5</p>
+<p>3)至少有一人命中的概率：1-P($\overline{A}$)*P($\overline{B}$)=1-0.4 *0.5=0.8</p>
+</blockquote>
+<p><strong>全概率公式</strong></p>
+<p>设事件$B_1$,$B_2$,...,$B_n$满足：</p>
+<ol>
+<li>$B_1$,$B_2$,...,$B_n$两两互不相容,且P($B_i$)&gt;0</li>
+<li>A是事件$B_1$,$B_2$,...,$B_n$的并集</li>
+</ol>
+<p>则有全概率公式:$P\left( A \right) =\varSigma
+_{i=1}^{n}P\left( B_i \right) P\left( A|B_i \right) $</p>
+<blockquote>
+<p>现有 2个袋子， 袋子1里有<strong>5个白球和1个黑球</strong>，袋子 2里有 <strong>3个 白球和 7个黑球</strong>。试验规则是先 掷骰子，如果硬币为正面，则袋子1被选择，如果硬币反面，则袋子 2被选择 ，然后在被选择的袋子里随机抽出一个球，最后抽出白球的概率是多少？</p>
+<p>P(白)=P(白|袋子1)<em>P(正)+P(白|袋子2) <em>P(反)=(5/6)</em>(1/2)+(3/10)</em>(1/2)=17/30​</p>
+</blockquote>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/1.png" alt></p>
 
       
     </div>
@@ -374,13 +421,13 @@ a \right) b$</p>
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/01/欧拉函数/">欧拉函数</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/09/概率/">概率</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-08-01, 23:34:43</p>
-        <p><span>最后更新:</span>2019-08-09, 13:15:10</p>
+        <p><span>发布时间:</span>2019-08-09, 14:10:06</p>
+        <p><span>最后更新:</span>2019-08-09, 20:31:52</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/01/欧拉函数/" title="欧拉函数">https://huiqing17ahu.github.io/2019/08/01/欧拉函数/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/01/欧拉函数/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/09/概率/" title="概率">https://huiqing17ahu.github.io/2019/08/09/概率/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/09/概率/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -392,16 +439,10 @@ a \right) b$</p>
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/01/笛卡尔树/">
-                    笛卡尔树
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/01/—-int128/">
-                    —__int128
+                <a href="/2019/08/08/2019牛客多校第七场/">
+                    2019牛客多校第七场
                 </a>
             </div>
         
@@ -413,7 +454,7 @@ a \right) b$</p>
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">欧拉函数</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、概率论</span></a></li></ol>
         
     </div>
     <style>
@@ -449,7 +490,7 @@ a \right) b$</p>
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"欧拉函数　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"概率　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -488,15 +529,13 @@ a \right) b$</p>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/01/笛卡尔树/" title="上一篇: 笛卡尔树">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/01/—-int128/" title="下一篇: —__int128">
+            <a href="/2019/08/08/2019牛客多校第七场/" title="下一篇: 2019牛客多校第七场">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -199,7 +199,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构-树/">数据结构,树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构-树/">数据结构,树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
                     </div>
                 </section>
                 
@@ -281,6 +281,86 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-概率" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/09/概率/" class="article-date">
+      <time datetime="2019-08-09T06:10:06.000Z" itemprop="datePublished">2019-08-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/09/概率/">概率</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2>一、概率论</h2>
+<p>**概率空间：**由三元组(Ω,F,P)定义：</p>
+<ol>
+<li>
+<p>Ω是所有可能输出（样本点）的非空集合,称作<strong>样本空间</strong>.</p>
+</li>
+<li>
+<p>F是样本空间Ω幂集的非 空子 集， $F\subseteq 2^{\varOmega}$,称作<strong>事件空间</strong>.</p>
+</li>
+<li>
+<p>P称为概率 ,是一个从F到实数域R的函数.每个事件都被此函数赋予一个0和1之间的概率值.</p>
+<p>eg.抛六面的色子，所有可能输出 (样本空间)Ω={1,2,3,4,5,6}.</p>
+<p>​     若事件是抛出奇或偶数，则事件空间F={∅,{1,3,5},{2,4,6},Ω}</p>
+</li>
+</ol>
+<p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概率论/">概率论</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/09/概率/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2019牛客多校第七场" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -876,69 +956,6 @@ _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $</li>
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-模板整理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/21/模板整理/" class="article-date">
-      <time datetime="2019-03-21T11:00:36.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/模板整理/">模板整理</a>
-    </h1>
-  
-
-		
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h4>1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$</h4>
-<p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
     </div>
 
       
