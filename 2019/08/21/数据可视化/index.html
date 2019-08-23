@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Huiqq">
+
+
+
+<meta name="description" content="一、图形绘制 1.离散数据及函数 1234X=1:20;Y=log(X);figure(2)plot(X,Y,&apos;O&apos;,&apos;MarkerSize&apos;,8)% &apos;O&apos;表示画图的形状，8表示单个图标size">
+<meta name="keywords" content="matlab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据可视化">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/21/数据可视化/index.html">
+<meta property="og:site_name" content="Huiqing&#39;s  blog">
+<meta property="og:description" content="一、图形绘制 1.离散数据及函数 1234X=1:20;Y=log(X);figure(2)plot(X,Y,&apos;O&apos;,&apos;MarkerSize&apos;,8)% &apos;O&apos;表示画图的形状，8表示单个图标size">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/6.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/7.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/8.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/9.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/10.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/11.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/12.jpg">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/13.png">
+<meta property="og:updated_time" content="2019-08-21T08:53:37.890Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据可视化">
+<meta name="twitter:description" content="一、图形绘制 1.离散数据及函数 1234X=1:20;Y=log(X);figure(2)plot(X,Y,&apos;O&apos;,&apos;MarkerSize&apos;,8)% &apos;O&apos;表示画图的形状，8表示单个图标size">
+<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/6.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Huiqing&#39;s  blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>数据可视化 | Huiqing&#39;s  blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/hi.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Huiqq</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">It&#39;s a warm sunny day.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:563481652@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/HuiQing17ahu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/xin-hai-yao-zhu/activities" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构-树/">数据结构,树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛客多校/">牛客多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/细节/">细节</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://www.csdn.net/">CSDN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">博客搬家中,先凑合着看吧,功能不完善处请见谅~</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Huiqq</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/hi.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Huiqq</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">It&#39;s a warm sunny day.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:563481652@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/HuiQing17ahu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/xin-hai-yao-zhu/activities" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-数据可视化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/21/数据可视化/" class="article-date">
+      <time datetime="2019-08-21T00:41:00.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据可视化
+    </h1>
+  
+
+		
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab/">matlab</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3>一、图形绘制</h3>
+<h4>1.离散数据及函数</h4>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X=<span class="number">1</span>:<span class="number">20</span>;</span><br><span class="line">Y=<span class="built_in">log</span>(X);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(X,Y,<span class="string">'O'</span>,<span class="string">'MarkerSize'</span>,<span class="number">8</span>)<span class="comment">% 'O'表示画图的形状，8表示单个图标size</span></span><br></pre></td></tr></table></figure></p>
+<p><a id="more"></a></p>
+<h4>2.连续函数</h4>
+<p>matlab无法真正实现连续函数可视化，必须将连续函数在一组离散自变量上计算除函数结果</p>
+<p>subplot是将多个图画到一个平面上的工具。其中，m表示是图排成m行，n表示图排成n列，也就是整个figure中有n个图是排成一行的，一共m行，如果m=2就是表示2行图。p表示图所在的位置，p=1表示从左到右从上到下的第一个位置。</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">X1=(<span class="number">0</span>:<span class="number">12</span>)*<span class="built_in">pi</span>/<span class="number">6</span>;</span><br><span class="line">Y1=<span class="built_in">cos</span>(<span class="number">3</span>*X1);</span><br><span class="line">X2=(<span class="number">0</span>:<span class="number">360</span>)*<span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line">Y2=<span class="built_in">cos</span>(<span class="number">3</span>*X2);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)  <span class="comment">%表示建立图形，第几幅图</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);  <span class="comment">%z唉多个图中显示在第几个位置</span></span><br><span class="line"><span class="built_in">plot</span>(X1,Y1,<span class="string">'o'</span>,<span class="string">'MarkerSize'</span>,<span class="number">3</span>);</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>]);  <span class="comment">%控制在哪个范围内显示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%figure(2)  %表示建立图形，第几幅图</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);  <span class="comment">%z唉多个图中显示在第几个位置   要显示在一个图中就只能有一个figure</span></span><br><span class="line"><span class="built_in">plot</span>(X1,Y1,<span class="string">'LineWidth'</span>,<span class="number">1</span>);  <span class="comment">%直线了噢</span></span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>]);  <span class="comment">%控制在哪个范围内显示</span></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>); </span><br><span class="line"><span class="built_in">plot</span>(X2,Y2,<span class="string">'o'</span>,<span class="string">'MarkerSize'</span>,<span class="number">3</span>);  <span class="comment">%‘O’可换成'-ro'就变成了红色的圈圈构图，</span></span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>]); </span><br><span class="line"><span class="comment">%gird on % 添加网格线</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>); </span><br><span class="line"><span class="built_in">plot</span>(X2,Y2,<span class="string">'LineWidth'</span>,<span class="number">1</span>);</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>]);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/6.png" alt></p>
+<h4>3.其他功能示例</h4>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=-<span class="built_in">pi</span>/<span class="number">2</span>:<span class="number">0.01</span>:<span class="built_in">pi</span>/<span class="number">2</span>;</span><br><span class="line">y=x+<span class="built_in">sin</span>(x)+<span class="built_in">exp</span>(x);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line"><span class="comment">%subplot(2,1,1);</span></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'-ro'</span>,<span class="string">'MarkerSize'</span>,<span class="number">1</span>) <span class="comment">%红色线</span></span><br><span class="line">grid on  <span class="comment">%添加网格线</span></span><br><span class="line">title(<span class="string">'y的函数图像'</span>);</span><br><span class="line">xlabel(<span class="string">'x'</span>);</span><br><span class="line">ylabel(<span class="string">'y'</span>);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'y=x+sinx+e^&#123;x&#125;'</span>);  <span class="comment">%添加函数标签</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/7.png" alt></p>
+<h3>二、二维图像绘制</h3>
+<h4>1.plot指令规范：</h4>
+<ol>
+<li>
+<p>plot(x,y)</p>
+</li>
+<li>
+<p>plot(y)：y为一维实数数组，以1：n为横坐标</p>
+</li>
+<li>
+<p>plot(z)：z为一维负数数组，以横轴为实轴，纵轴为虚轴绘制( real( z(j) ),imag( z(j) ) )</p>
+</li>
+<li>
+<p>plot(A)：绘制矩阵A的<strong>列</strong>对它的下标的图形</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="built_in">magic</span>(<span class="number">20</span>);</span><br><span class="line">A(<span class="number">9</span>:<span class="number">20</span>,:)=[];<span class="comment">%截取1~8行去绘图</span></span><br><span class="line"><span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(A)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/8.png" alt></p>
+</li>
+<li>
+<p>plot(x,A)：矩阵A 对向量x的图形，A：m*n，x长度若为m，则绘制矩阵A的列对向量x的图形,x长度若为n,则绘制矩阵的行对向量x的图形，x可以是行向量或列向量</p>
+</li>
+<li>
+<p>plot(A,x)：对矩阵A绘制向量x的图像，其他同上</p>
+</li>
+<li>
+<p>plot(A,B)：对<strong>矩阵A的行</strong>绘制<strong>矩阵B的列</strong>的图形，如果A和B都是m*n的矩阵，则将绘制n条由m个有序对连成的曲线</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">5</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">6</span></span><br><span class="line">        A(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="built_in">i</span>+<span class="built_in">j</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">A</span><br><span class="line">x=<span class="number">0.2</span>:<span class="number">0.2</span>:<span class="number">1</span>;</span><br><span class="line">x</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot</span>(A,x,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,A,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>);</span><br><span class="line"></span><br><span class="line">B=<span class="built_in">reshape</span>(<span class="number">1</span>:<span class="number">30</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">plot</span>(A,B,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">plot</span>(B,A,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/9.png" alt></p>
+<p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">A =</span><br><span class="line"></span><br><span class="line">     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span>    <span class="number">10</span></span><br><span class="line">     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span>    <span class="number">10</span>    <span class="number">11</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x =</span><br><span class="line"></span><br><span class="line">    <span class="number">0.2000</span>    <span class="number">0.4000</span>    <span class="number">0.6000</span>    <span class="number">0.8000</span>    <span class="number">1.0000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span>    <span class="number">11</span>    <span class="number">16</span>    <span class="number">21</span>    <span class="number">26</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">7</span>    <span class="number">12</span>    <span class="number">17</span>    <span class="number">22</span>    <span class="number">27</span></span><br><span class="line">     <span class="number">3</span>     <span class="number">8</span>    <span class="number">13</span>    <span class="number">18</span>    <span class="number">23</span>    <span class="number">28</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">9</span>    <span class="number">14</span>    <span class="number">19</span>    <span class="number">24</span>    <span class="number">29</span></span><br><span class="line">     <span class="number">5</span>    <span class="number">10</span>    <span class="number">15</span>    <span class="number">20</span>    <span class="number">25</span>    <span class="number">30</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>plot(x,y,str)：用str指定颜色和线型</p>
+</li>
+<li>
+<p>plot(x1,y1,str1,x2,y2,str2,...)</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">j</span>=<span class="built_in">sqrt</span>(<span class="number">-1</span>);<span class="comment">% 奥运五环</span></span><br><span class="line">x=<span class="number">2</span>;</span><br><span class="line">y=<span class="number">0.4</span>;</span><br><span class="line">bluecircle=<span class="built_in">cos</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+<span class="built_in">j</span>*<span class="built_in">sin</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+(<span class="built_in">j</span>*y-x);</span><br><span class="line">blackcircle=<span class="built_in">cos</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+<span class="built_in">j</span>*<span class="built_in">sin</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+(<span class="built_in">j</span>*y);</span><br><span class="line">redcircle=<span class="built_in">cos</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+<span class="built_in">j</span>*<span class="built_in">sin</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+(<span class="built_in">j</span>*y+x);</span><br><span class="line">yellocircle=<span class="built_in">cos</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+<span class="built_in">j</span>*<span class="built_in">sin</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+(-<span class="built_in">j</span>*y-x/<span class="number">2</span>);</span><br><span class="line">greencircle=<span class="built_in">cos</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+<span class="built_in">j</span>*<span class="built_in">sin</span>(-<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">20</span>:<span class="built_in">pi</span>)+(-<span class="built_in">j</span>*y+x/<span class="number">2</span>);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(bluecircle,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(blackcircle,<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(redcircle,<span class="string">'r'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(yellocircle,<span class="string">'y'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(greencircle,<span class="string">'g'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">t=(<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">100</span>:<span class="built_in">pi</span>)';</span><br><span class="line">y1=<span class="built_in">sin</span>(t)*[<span class="number">-1</span>,<span class="number">1</span>];</span><br><span class="line">y2=<span class="built_in">sin</span>(t) .*<span class="built_in">sin</span>(<span class="number">9</span>*t);</span><br><span class="line">t3=<span class="built_in">pi</span>*(<span class="number">0</span>:<span class="number">9</span>)/<span class="number">9</span>;</span><br><span class="line">y3=<span class="built_in">sin</span>(t3) .*<span class="built_in">sin</span>(<span class="number">9</span>*t3);</span><br><span class="line"><span class="built_in">plot</span>(t,y1,<span class="string">'r:'</span>,t,y2,<span class="string">'b'</span>,t3,y3,<span class="string">'bo'</span>)  <span class="comment">% ‘bo'横向变成散点O,一共绘制了三条曲线</span></span><br><span class="line">axis([<span class="number">0</span>,<span class="built_in">pi</span>,<span class="number">-1</span>,<span class="number">1</span>])  <span class="comment">%  设置坐标值范围</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/10.png" alt=" "></p>
+</li>
+</ol>
+<h4>2.文字说明：</h4>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>*<span class="built_in">pi</span>:<span class="built_in">pi</span>*<span class="number">0.5</span>;</span><br><span class="line">y=<span class="built_in">cos</span>(x)+<span class="built_in">sqrt</span>(<span class="number">-1</span>)*<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">plot</span>(y*<span class="number">2</span>,<span class="string">'r'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">x=<span class="number">0.5</span>*<span class="built_in">pi</span>:<span class="number">0.01</span>*<span class="built_in">pi</span>:<span class="built_in">pi</span>;</span><br><span class="line">y=<span class="built_in">cos</span>(x)+<span class="built_in">sqrt</span>(<span class="number">-1</span>)*<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">plot</span>(y*<span class="number">2</span>,<span class="string">'y'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">x=-<span class="built_in">pi</span>:<span class="number">0.01</span>*<span class="built_in">pi</span>:-<span class="built_in">pi</span>*<span class="number">0.5</span>;</span><br><span class="line">y=<span class="built_in">cos</span>(x)+<span class="built_in">sqrt</span>(<span class="number">-1</span>)*<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">plot</span>(y*<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">x=-<span class="built_in">pi</span>*<span class="number">0.5</span>:<span class="number">0.01</span>*<span class="built_in">pi</span>:<span class="number">0</span>;</span><br><span class="line">y=<span class="built_in">cos</span>(x)+<span class="built_in">sqrt</span>(<span class="number">-1</span>)*<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">plot</span>(y*<span class="number">2</span>,<span class="string">'g'</span>,<span class="string">'LineWidth'</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">'极坐标系'</span>);</span><br><span class="line">text([<span class="number">1.5</span> <span class="number">-3</span> <span class="number">1.5</span> <span class="number">-3</span>],[<span class="number">2</span> <span class="number">2</span> <span class="number">-2</span> <span class="number">-2</span>],&#123;<span class="string">'第一象限'</span>,<span class="string">'第二象限'</span>,<span class="string">'第三象限'</span>,<span class="string">'第四象限'</span>&#125;)<span class="comment">%前面的坐标是用来确定放的位置的</span></span><br><span class="line"><span class="built_in">legend</span>(&#123;<span class="string">'[0 0.5\pi]'</span>,<span class="string">'[0.5\pi \pi]'</span>,<span class="string">'[\pi 1.5\pi]'</span>,<span class="string">'[1.5\pi 2\pi]'</span>&#125;) <span class="comment">% 添加图注</span></span><br><span class="line">xlim([<span class="number">-5</span> <span class="number">5</span>]); <span class="comment">%x轴上下限设定</span></span><br><span class="line">ylim([<span class="number">-5</span> <span class="number">5</span>]);</span><br><span class="line"><span class="built_in">plot</span>([<span class="number">-4</span> <span class="number">4</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,<span class="number">3</span>);<span class="comment">% 画出横坐标轴</span></span><br><span class="line"><span class="built_in">hold</span> on; <span class="comment">%保持之前的图像，并可以继续绘制新图像</span></span><br><span class="line"><span class="comment">%hold off； %会刷新当前图像</span></span><br><span class="line"><span class="built_in">plot</span>([<span class="number">0</span> <span class="number">0</span>],[<span class="number">-4</span> <span class="number">4</span>],<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,<span class="number">3</span>);<span class="comment">% 画出纵坐标轴</span></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="comment">%axis off %取消掉了自带的坐标，这个最后在动，因为上面涉及到的坐标都是根据系统坐标定的</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/11.png" alt></p>
+<h4>3.线型、标记和颜色</h4>
+<p>（1）线型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">线型代号</th>
+<th style="text-align:center">表示线型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">实线</td>
+</tr>
+<tr>
+<td style="text-align:center">--</td>
+<td style="text-align:center">虚线</td>
+</tr>
+<tr>
+<td style="text-align:center">-.</td>
+<td style="text-align:center">点画线</td>
+</tr>
+<tr>
+<td style="text-align:center">:</td>
+<td style="text-align:center">点线</td>
+</tr>
+<tr>
+<td style="text-align:center">none</td>
+<td style="text-align:center">无线</td>
+</tr>
+</tbody>
+</table>
+<p>（2）标记</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标记代号</th>
+<th style="text-align:center">表示标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">点</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">星号</td>
+</tr>
+<tr>
+<td style="text-align:center">square</td>
+<td style="text-align:center">正方形</td>
+</tr>
+<tr>
+<td style="text-align:center">diamond</td>
+<td style="text-align:center">菱形</td>
+</tr>
+<tr>
+<td style="text-align:center">pentagram</td>
+<td style="text-align:center">五角星形</td>
+</tr>
+<tr>
+<td style="text-align:center">hexagram</td>
+<td style="text-align:center">六角星形</td>
+</tr>
+<tr>
+<td style="text-align:center">none</td>
+<td style="text-align:center">无点</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">o</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">x</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">顶点指向左边的三角形</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">指向右边</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">正三角形</td>
+</tr>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:center">倒三角形</td>
+</tr>
+</tbody>
+</table>
+<p>（3）颜色</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">颜色代号</th>
+<th style="text-align:center">表示颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">g</td>
+<td style="text-align:center">绿色</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">品红色</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">蓝色</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">灰色</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">白色</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">红色</td>
+</tr>
+<tr>
+<td style="text-align:center">k</td>
+<td style="text-align:center">黑色</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">黄色</td>
+</tr>
+</tbody>
+</table>
+<h4>4.双坐标轴绘制</h4>
+<p><code>plotyy(X1,Y1,X2,Y2);</code>以左右不同的纵轴绘制两条曲线</p>
+<p><code>plotyy(X1,Y1,X2,Y2，Fun);</code>都以Fun指定的形式绘制</p>
+<p><code>plotyy(X1,Y1,X2,Y2，Fun1，Fun2);</code>分别以Fun1,Fun2指定形式绘制</p>
+<h4>5.fplot绘图指令</h4>
+<p>可以通过matlab平台内部设置的自适应算法动态决定<strong>自变量的离散间隔</strong></p>
+<ol>
+<li><code>fplot(f,limits)</code>  limits表示为[lx rx]或[lx rx;ly ry]</li>
+<li><code>fplot(f,limits,LineSpec)</code> LineSpec表示规定的线型，标记，颜色等</li>
+<li><code>fplot(f,limits,tol)</code>在limits定义的范围内，在tol规定的相对误差范围内，绘制f函数图像</li>
+<li><code>fplot(f,limits,tol,LineSpec)</code></li>
+<li><code>fplot(f,limits,n)</code>至少绘制n+1个点</li>
+</ol>
+<h4>6.ezplot绘图指令</h4>
+<p>用于绘制在某一自变量区域内的图形</p>
+<ol>
+<li><code>ezplot(f)</code>按matlab默认方式（即-2pi&lt;x&lt;2pi)绘制函数</li>
+<li><code>ezplot(f,[min，max])</code>,x方向变量按[min max],y方向变量按默认</li>
+<li><code>ezplot(f,[xmin，xmax，ymin，ymax])</code></li>
+<li><code>ezplot(x,y)</code>按默认方式绘制函数x,y</li>
+<li><code>ezplot(x,y,[min,max])</code>按自变量范围为[min max]</li>
+</ol>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ezplot(<span class="string">'sin(x)^2+4*cos(y)^2=4'</span>,[<span class="number">-5</span> <span class="number">5</span> <span class="number">-1</span> <span class="number">1</span>]);<span class="comment">%函数用' '起来</span></span><br><span class="line">axis square<span class="comment">%让坐标轴呈方形！</span></span><br></pre></td></tr></table></figure></p>
+<h4>7.特殊坐标轴绘图</h4>
+<p>直角坐标系和极坐标系均为线性刻度</p>
+<p>当数据呈指数型变化规律时，用线性刻度无法清晰的表示出低次幂的部分数据，可以通过双坐标绘图，对指数数据进行局部放大。</p>
+<p>更简洁的方式是：使用semilogx函数、semilogy函数、loglog函数对<strong>对数数据</strong>进行处理</p>
+<ol>
+<li>
+<p><strong>semilogx函数</strong>（使用与plot相同）</p>
+<p>semilogx(Y)</p>
+<p>semilogx(X1,Y1,X2,Y2,...)</p>
+<p>semilogx(X1,Y1,LineSpec1,X2,Y2,LineSpec2...)</p>
+<p>semilogx(...,'PropertyName',PropertyValue,...)</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">10</span> .^ (<span class="number">0.1</span>:<span class="number">0.1</span>:<span class="number">4</span>)</span><br><span class="line">y=<span class="number">1</span> ./ (x+<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">semilogx(x,y,<span class="string">'+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line">title(<span class="string">'y=(x+1000)^&#123;-1&#125;'</span>)</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line">title(<span class="string">'y=(x+1000)^&#123;-1&#125;'</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/12.jpg" alt></p>
+<p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x =</span><br><span class="line"></span><br><span class="line">   <span class="number">1.0e+04</span> *</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span> 至 <span class="number">10</span> 列</span><br><span class="line"></span><br><span class="line">    <span class="number">0.0001</span>    <span class="number">0.0002</span>    <span class="number">0.0002</span>    <span class="number">0.0003</span>    <span class="number">0.0003</span>    <span class="number">0.0004</span>    <span class="number">0.0005</span>    <span class="number">0.0006</span>    <span class="number">0.0008</span>    <span class="number">0.0010</span></span><br><span class="line"></span><br><span class="line">  <span class="number">11</span> 至 <span class="number">20</span> 列</span><br><span class="line"></span><br><span class="line">    <span class="number">0.0013</span>    <span class="number">0.0016</span>    <span class="number">0.0020</span>    <span class="number">0.0025</span>    <span class="number">0.0032</span>    <span class="number">0.0040</span>    <span class="number">0.0050</span>    <span class="number">0.0063</span>    <span class="number">0.0079</span>    <span class="number">0.0100</span></span><br><span class="line"></span><br><span class="line">  <span class="number">21</span> 至 <span class="number">30</span> 列</span><br><span class="line"></span><br><span class="line">    <span class="number">0.0126</span>    <span class="number">0.0158</span>    <span class="number">0.0200</span>    <span class="number">0.0251</span>    <span class="number">0.0316</span>    <span class="number">0.0398</span>    <span class="number">0.0501</span>    <span class="number">0.0631</span>    <span class="number">0.0794</span>    <span class="number">0.1000</span></span><br><span class="line"></span><br><span class="line">  <span class="number">31</span> 至 <span class="number">40</span> 列</span><br><span class="line"></span><br><span class="line">    <span class="number">0.1259</span>    <span class="number">0.1585</span>    <span class="number">0.1995</span>    <span class="number">0.2512</span>    <span class="number">0.3162</span>    <span class="number">0.3981</span>    <span class="number">0.5012</span>    <span class="number">0.6310</span>    <span class="number">0.7943</span>    <span class="number">1.0000</span></span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<ol start="2">
+<li>
+<p><strong>semilogy函数</strong></p>
+<p>调用格式同上，绘制图形时，y轴采用对数坐标</p>
+</li>
+<li>
+<p><strong>loglog函数</strong></p>
+<p>调用格式同上，x,y轴均采用对数坐标</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0.1</span>:<span class="number">0.1</span>:<span class="number">5</span>;</span><br><span class="line">x=<span class="built_in">log10</span>(a);</span><br><span class="line">y=<span class="number">10</span> .^a;</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">loglog(x,y,<span class="string">'+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line">title(<span class="string">'lgy=10^x'</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line">title(<span class="string">'lgy=10^x'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/13.png" alt></p>
+</li>
+</ol>
+<h4>8.二维特殊图形绘制</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">area</td>
+<td style="text-align:center">填充绘图</td>
+</tr>
+<tr>
+<td style="text-align:center">bar</td>
+<td style="text-align:center">条形图</td>
+</tr>
+<tr>
+<td style="text-align:center">comet</td>
+<td style="text-align:center">彗星图</td>
+</tr>
+<tr>
+<td style="text-align:center">errorbar</td>
+<td style="text-align:center">误差带图</td>
+</tr>
+<tr>
+<td style="text-align:center">ezplot</td>
+<td style="text-align:center">简单绘制函数图</td>
+</tr>
+<tr>
+<td style="text-align:center">ezpolar</td>
+<td style="text-align:center">简单绘制极坐标图</td>
+</tr>
+<tr>
+<td style="text-align:center">feather</td>
+<td style="text-align:center">矢量图</td>
+</tr>
+<tr>
+<td style="text-align:center">fill</td>
+<td style="text-align:center">多边形填充</td>
+</tr>
+<tr>
+<td style="text-align:center">gplot</td>
+<td style="text-align:center">拓扑图</td>
+</tr>
+<tr>
+<td style="text-align:center">compass</td>
+<td style="text-align:center">与feather功能类似的矢量图</td>
+</tr>
+<tr>
+<td style="text-align:center">fplot</td>
+<td style="text-align:center">函数绘制</td>
+</tr>
+<tr>
+<td style="text-align:center">hist</td>
+<td style="text-align:center">柱状图</td>
+</tr>
+<tr>
+<td style="text-align:center">pareto</td>
+<td style="text-align:center">Pareto图</td>
+</tr>
+<tr>
+<td style="text-align:center">pie</td>
+<td style="text-align:center">饼状图</td>
+</tr>
+<tr>
+<td style="text-align:center">plotmatrix</td>
+<td style="text-align:center">分散矩阵绘制</td>
+</tr>
+<tr>
+<td style="text-align:center">ribbon</td>
+<td style="text-align:center">三维图的二维条状显示</td>
+</tr>
+<tr>
+<td style="text-align:center">scatter</td>
+<td style="text-align:center">散射图</td>
+</tr>
+<tr>
+<td style="text-align:center">stem</td>
+<td style="text-align:center">离散序列火柴杆状图</td>
+</tr>
+<tr>
+<td style="text-align:center">stairs</td>
+<td style="text-align:center">阶梯图</td>
+</tr>
+<tr>
+<td style="text-align:center">rose</td>
+<td style="text-align:center">极坐标系下的柱状图</td>
+</tr>
+<tr>
+<td style="text-align:center">quiver</td>
+<td style="text-align:center">向量场</td>
+</tr>
+<tr>
+<td style="text-align:center">barh</td>
+<td style="text-align:center">水平条形图</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/21/数据可视化/">数据可视化</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
+        <p><span>发布时间:</span>2019-08-21, 08:41:00</p>
+        <p><span>最后更新:</span>2019-08-21, 16:53:37</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/21/数据可视化/" title="数据可视化">https://huiqing17ahu.github.io/2019/08/21/数据可视化/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/21/数据可视化/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/08/21/数据分析/">
+                    数据分析
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/19/matlab基础语法/">
+                    matlab基础语法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、图形绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.1.</span> <span class="toc-text">1.离散数据及函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.2.</span> <span class="toc-text">2.连续函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.</span> <span class="toc-text">3.其他功能示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">二、二维图像绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">1.plot指令规范：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.2.</span> <span class="toc-text">2.文字说明：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.3.</span> <span class="toc-text">3.线型、标记和颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.4.</span> <span class="toc-text">4.双坐标轴绘制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.5.</span> <span class="toc-text">5.fplot绘图指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.6.</span> <span class="toc-text">6.ezplot绘图指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.7.</span> <span class="toc-text">7.特殊坐标轴绘图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.8.</span> <span class="toc-text">8.二维特殊图形绘制</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"数据可视化　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTUxNy8yMjAyOQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/08/21/数据分析/" title="上一篇: 数据分析">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/19/matlab基础语法/" title="下一篇: matlab基础语法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/数论基础/">基础数论:素数、约数、同余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 Huiqq
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 7;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>
