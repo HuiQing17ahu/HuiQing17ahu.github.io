@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://segmentfault.com/img/bVDwkj?w=764&h=470">
 <meta property="og:image" content="https://pic2.zhimg.com/50/v2-f8cfc9b60026a1b4f9f8c8790b7f4bd2_hd.webp">
 <meta property="og:image" content="https://pic4.zhimg.com/50/v2-318543c9634ae94fd88949178ebe3e5d_hd.webp">
-<meta property="og:updated_time" content="2019-08-27T09:06:05.952Z">
+<meta property="og:updated_time" content="2019-08-27T09:14:16.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余和GCD">
 <meta name="twitter:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
@@ -367,7 +367,7 @@
 <p>（4）$( a^b ) %p=( ( a%p) ^b ) %p$</p>
 <p>（5）★$\left( \frac{a}{b} \right) %p≠\left(\frac{a%p}{b%p} \right) %p$</p>
 <p>（6）交换律：$(a+b) %p=(b+a) %p$，$(a<em>b) %p=(b</em>a) %p$</p>
-<p>（7）结合律：$((a+b) %p+c) %p=(a+(b+c) %p) %p$</p>
+<p>（7）结合律：$((a+b) \ %p+c) %p=(a+(b+c) %p) %p$</p>
 <p>​						$((a<em>b) %p</em>c) %p=(a*(b*c) %p) %p$</p>
 <p>（8）分配律：$((a+b) %p * c) %p=((a * c) %p+(b * c) %p) %p$</p>
 </li>
@@ -493,21 +493,21 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <p>即：<strong>LCM(a,b)=a * b / GCD(a,b)</strong></p>
 </blockquote>
 <h3>七、贝祖定理</h3>
-<p>**贝祖定理：**对于非零整数a，b，有 $d=gcd\ (a,b)$，那么就存在整数 x和 y，使得  $ax+by=d$</p>
+<p><strong>贝祖定理</strong>：对于非零整数a，b，有 $d=gcd\ (a,b)$，那么就存在整数 x和 y，使得  $ax+by=d$</p>
 <blockquote>
 <p>证明：</p>
 </blockquote>
-<p>**贝祖定理扩展：**如果 $ax+by=n$ 有解，<strong>充要条件</strong>是 <strong>n 是gcd(a,b)的倍数</strong></p>
+<p><strong>贝祖定理扩展</strong>：如果 $ax+by=n$ 有解，<strong>充要条件</strong>是 <strong>n 是gcd(a,b)的倍数</strong></p>
 <blockquote>
 <p>证明:</p>
 </blockquote>
 <h3>八、扩展欧几里得算法</h3>
 <p>给出a，b，去计算  $ax+by=gcd\ (a,b)$的算法即为<strong>扩展欧几里得算法</strong></p>
-<p>**边界情况：**b = 0，a = gcd (a,b)</p>
+<p><strong>边界情况</strong>：b = 0，a = gcd (a,b)</p>
 <p>a * 1+b * 0=gcd (a,b) → x=1，y=0</p>
 <p>**递推情况：**从下一层反推回当前层</p>
 <p>假定下一层已求解： $b * x_1+(a %b) * y_1=gcd$</p>
-<p>将$a%b=a-(a/b)<em>b$代入上式：$b</em> x_1+(a-(a/b)* b)* y_1=gcd$</p>
+<p>将$a%b=a-(a/b) * b$代入上式：$b * x_1+(a-(a/b) *  b) *  y_1=gcd$</p>
 <p>→    $b* x_1+a* y_1-(a/b)* b* y_1=a* y_1+b* (x_1-(a/b)* y_1)=gcd$</p>
 <p>→   $x=y_1,\     y=x_1-(a/b) *y_1$</p>
 <p><strong>注意：</strong>（关于通解）方程ax+by=gcd(a,b)的解不唯一</p>
@@ -566,7 +566,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
         <p><span>本文标题:</span><a href="/2019/08/23/同余和GCD/">同余和GCD</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-08-23, 16:14:56</p>
-        <p><span>最后更新:</span>2019-08-27, 17:06:05</p>
+        <p><span>最后更新:</span>2019-08-27, 17:14:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/23/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/23/同余和GCD/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/23/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
