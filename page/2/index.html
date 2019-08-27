@@ -308,13 +308,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>关于 __int128</h2>
-<p>众所周知:</p>
+              <h2 id="关于-int128"><a href="#关于-int128" class="headerlink" title="关于 __int128"></a>关于 __int128</h2><p>众所周知:</p>
 <p><code>int</code>是32位，范围大概为10^9</p>
 <p><code>long long</code>(g++编译器）， <code>__int64</code>（用<code>%I64d</code>控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19</p>
-<p>关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691</p>
+<p>关于两种扩展的区别，参照:<a href="https://blog.csdn.net/qq_31736627/article/details/52912691" target="_blank" rel="noopener">https://blog.csdn.net/qq_31736627/article/details/52912691</a></p>
 <p><code>__int128</code>是128位，大概10^38范围，用于处理大数,但它能不能使用取决于编译器，大部分OJ是支持的，<strong>只有在Linux环境下能够使用</strong></p>
-<p>
           
       
     </div>
@@ -379,13 +377,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>A.digits 2</h2>
-<p><a href="https://ac.nowcoder.com/acm/contest/885/A" target="_blank" rel="noopener">题目链接</a></p>
+              <h2 id="A-digits-2"><a href="#A-digits-2" class="headerlink" title="A.digits 2"></a>A.digits 2</h2><p><a href="https://ac.nowcoder.com/acm/contest/885/A" target="_blank" rel="noopener">题目链接</a></p>
 <p>题意：给你一个&lt;=100的数n，要你找到一个正整数满足:</p>
 <p>(1)组成这个数的所有数字的和能够被n整除</p>
 <p>(2)这个数本身能够被n整除</p>
 <p>(3)这个数不能包含超过10^4个数字，即最多为10^4位</p>
-<p>
           
       
     </div>
@@ -450,9 +446,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>A.<a href="https://ac.nowcoder.com/acm/contest/881/A" target="_blank" rel="noopener">Equivalent Prefixes</a></h2>
-<p>题意：RMQ(u,l,r) 表示在数组u中的l到r的范围内最小值的下标，定义当RMQ(u,l,r) == RMQ(v,l,r) 时 数组u和v相等，求最大的p满足RMQ(a,l,r) == RMQ(b,l,r) <strong>(1&lt;=l&lt;r&lt;=p)</strong>.（即1~p下标间的<strong>任意相同子区间</strong>的最小值的下标相同）</p>
-<p>
+              <h2 id="A-Equivalent-Prefixes"><a href="#A-Equivalent-Prefixes" class="headerlink" title="A.Equivalent Prefixes"></a>A.<a href="https://ac.nowcoder.com/acm/contest/881/A" target="_blank" rel="noopener">Equivalent Prefixes</a></h2><p>题意：RMQ(u,l,r) 表示在数组u中的l到r的范围内最小值的下标，定义当RMQ(u,l,r) == RMQ(v,l,r) 时 数组u和v相等，求最大的p满足RMQ(a,l,r) == RMQ(b,l,r) <strong>(1&lt;=l&lt;r&lt;=p)</strong>.（即1~p下标间的<strong>任意相同子区间</strong>的最小值的下标相同）</p>
           
       
     </div>
@@ -517,12 +511,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>一、素数</h2>
-<ul>
-<li>0和1既不是素数也不是合数，最小的素数是2</li>
+              <h2 id="一、素数"><a href="#一、素数" class="headerlink" title="一、素数"></a>一、素数</h2><ul>
+<li>0和1既不是素数也不是合数，最小的素数是2  </li>
 </ul>
-<h3>（一）素数的判定:</h3>
-<p>**试除法：**如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。
+<h3 id="（一）素数的判定"><a href="#（一）素数的判定" class="headerlink" title="（一）素数的判定:"></a>（一）素数的判定:</h3><p><strong>试除法：</strong>如果自然数n不能被[2,√n] 内的所有素数整除，那么n是素数。<br>
           
       
     </div>
@@ -587,12 +579,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>一、单调栈</h2>
-<ul>
+              <h2 id="一、单调栈"><a href="#一、单调栈" class="headerlink" title="一、单调栈"></a>一、单调栈</h2><ul>
 <li>单调递增栈：数据<strong>出栈</strong>的序列是单调递增序列</li>
 <li>单调递减栈：数据<strong>出栈</strong>的序列是单调递减序列</li>
 </ul>
-<p>
           
       
     </div>
@@ -657,9 +647,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4>1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$</h4>
-<p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h4 id="1、计算组合数C-n-m-frac-n-m-left-n-m-right"><a href="#1、计算组合数C-n-m-frac-n-m-left-n-m-right" class="headerlink" title="1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}"></a>1、计算组合数<script type="math/tex">C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}</script></h4><p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -720,17 +709,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>平衡二叉树</h2>
-<ul>
-<li>
-<p>平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）</p>
+              <h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><ul>
+<li><p>平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）</p>
 </li>
-<li>
-<p><strong>性质:<strong>它是一棵空树或它的左右两个子树的</strong>高度差的绝对值不超过1</strong>，并且<strong>左右两个子树都是一棵平衡二叉树</strong></p>
+<li><p><strong>性质:</strong>它是一棵空树或它的左右两个子树的<strong>高度差的绝对值不超过1</strong>，并且<strong>左右两个子树都是一棵平衡二叉树</strong></p>
 </li>
-<li>
-<p>常用实现方法有<a href="https://baike.baidu.com/item/%E7%BA%A2%E9%BB%91%E6%A0%91/2413209" target="_blank" rel="noopener">红黑树</a>、<a href="https://baike.baidu.com/item/AVL/7543015" target="_blank" rel="noopener">AVL</a>、<a href="https://baike.baidu.com/item/%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91/13859070" target="_blank" rel="noopener">替罪羊树</a>、<a href="https://baike.baidu.com/item/Treap" target="_blank" rel="noopener">Treap</a>、<a href="https://baike.baidu.com/item/%E4%BC%B8%E5%B1%95%E6%A0%91/7003945" target="_blank" rel="noopener">伸展树</a>等</p>
-<p>
+<li><p>常用实现方法有<a href="https://baike.baidu.com/item/红黑树/2413209" target="_blank" rel="noopener">红黑树</a>、<a href="https://baike.baidu.com/item/AVL/7543015" target="_blank" rel="noopener">AVL</a>、<a href="https://baike.baidu.com/item/替罪羊树/13859070" target="_blank" rel="noopener">替罪羊树</a>、<a href="https://baike.baidu.com/item/Treap" target="_blank" rel="noopener">Treap</a>、<a href="https://baike.baidu.com/item/伸展树/7003945" target="_blank" rel="noopener">伸展树</a>等</p>
           
       
     </div>
@@ -795,25 +779,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>树形结构</h2>
-<h2>一、树形结构</h2>
-<h4>基本术语：</h4>
-<ul>
-<li>
-<p><strong>结点:</strong> 数据元素 + 若干指向子树的分支</p>
+              <h2 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h2><h2 id="一、树形结构"><a href="#一、树形结构" class="headerlink" title="一、树形结构"></a>一、树形结构</h2><h4 id="基本术语："><a href="#基本术语：" class="headerlink" title="基本术语："></a>基本术语：</h4><ul>
+<li><p><strong>结点:</strong> 数据元素 + 若干指向子树的分支</p>
 </li>
-<li>
-<p>**结点的度:**分支的个数</p>
+<li><p><strong>结点的度:</strong>分支的个数</p>
 </li>
-<li>
-<p><strong>树的度:<strong>树中所有结点的度的</strong>最大值</strong></p>
+<li><p><strong>树的度:</strong>树中所有结点的度的<strong>最大值</strong></p>
 </li>
-<li>
-<p><strong>结点的层次:<strong>假设根结点的层次为1,第k层的结点的</strong>子树根结点</strong>（也就是它的下一层）的层次为k+1</p>
+<li><p><strong>结点的层次:</strong>假设根结点的层次为1,第k层的结点的<strong>子树根结点</strong>（也就是它的下一层）的层次为k+1</p>
 </li>
-<li>
-<p><strong>树的深度</strong>：树中叶结点所在的最大层次</p>
-<p>
+<li><p><strong>树的深度</strong>：树中叶结点所在的最大层次</p>
           
       
     </div>
@@ -878,9 +853,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2>关于时间限制</h2>
-<p>一般计算机1s能运行$5*10^8$次左右,如果下表是以1s运行$10^7$来看的话：</p>
-<p>
+              <h2 id="关于时间限制"><a href="#关于时间限制" class="headerlink" title="关于时间限制"></a>关于时间限制</h2><p>一般计算机1s能运行$5*10^8$次左右,如果下表是以1s运行$10^7$来看的话：</p>
           
       
     </div>
