@@ -23,14 +23,16 @@
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
 <meta property="og:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/34.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/35.png">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/34.webp">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/35.webp">
-<meta property="og:updated_time" content="2019-08-28T10:22:52.102Z">
+<meta property="og:updated_time" content="2019-08-28T10:32:13.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余和GCD">
 <meta name="twitter:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
-<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
+<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/34.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -361,29 +363,11 @@
 </li>
 <li>
 <p><strong>带模运算的性质</strong></p>
-<p>（1）$\left( a+b \right)\ %p=\left( a\ %p+b\ %p\right)\ %p$</p>
-<p>（2）$\left( a-b \right) %p=\left( a%p-b%p\right) %p$</p>
-<p>（3）$( a* b ) %p=( a\ %p* b\ %p)\ %p$</p>
-<p>（4）$( a^b ) %p=( ( a%p) ^b ) %p$</p>
-<p>（5）★$\left( \frac{a}{b} \right) \ %p≠\left(\frac{a\ %p}{b\ %p} \right)\  %p$</p>
-<p>（6）交换律：$(a+b)%p=(b+a) %p$，$(a<em>b) %p=(b</em>a) %p$</p>
-<p>（7）结合律：$((a+b) \ %p+c) %p=(a+(b+c) %p) %p$</p>
-<p>​						$((a*b) %p * c) %p=(a * (b * c) %p) %p$</p>
-<p>（8）分配律：$((a+b) %p * c) %p=((a * c) %p+(b * c) %p) %p$</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/34.png" alt></p>
 </li>
 <li>
 <p><strong>同余的性质</strong></p>
-<p>（1）自反性：$a≡a(% p)$</p>
-<p>（2）对称性：$a≡b(% p) → b≡a(% p)$</p>
-<p>（3）传递性：$(a≡b( % p),b≡c( % p) → a≡c( % p)$</p>
-<p>（4）消去率：$ac≡bc(% p) → a≡b(%\ \ p/GCD(c,p))$</p>
-<p>（5）$a≡b(%\ cd) → a≡b(%\ d)$</p>
-<p>（6）$(a≡b( %\ d),a≡b( % c) → a≡b( %\ LCM(c,d))$</p>
-<p>（7）若$a≡b\ (% p) $,则对任意的c，都有$(a+c)≡(b+c)( % p)$</p>
-<p>（8）若$a≡b\ (% p) $,则对任意的c，都有$(a<em>c)≡(b</em>c)( % p)$</p>
-<p>（9）若$a≡b\ (% p) $,则对任意的c，都有$(a^c)≡(b^c)( % p)$</p>
-<p>（10）若$a≡b\ (% p),c ≡d\ (% p)$,则对任意的c，都有$(a+c)≡(b+d)( % p)$，</p>
-<p>​           $(a-c)≡(b-d)( % p)$，$(a * c)≡(b * d)( % p)$</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/35.png" alt></p>
 </li>
 </ol>
 <h3>三、快速幂</h3>
@@ -471,7 +455,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <p><strong>GCD(a,b) =k * GCD(a1,b1)</strong>    其中a=k * a1，b=k * b1  (a,b不互质的时候，把公因数提出来)</p>
 </li>
 <li>
-<p>如果a=p * a1，p是素数，且b和p互质，那么 *<em>GCD(a,b) = GCD(p <em>a1,b) = GCD(a1,b)</em></em></p>
+<p>如果a=p * a1，p是素数，且b和p互质，那么 <strong>GCD(a,b) = GCD(p * a1,b) = GCD(a1,b)</strong></p>
 </li>
 <li>
 <p>取p=2，有以下性质：</p>
@@ -566,7 +550,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
         <p><span>本文标题:</span><a href="/2019/08/15/同余和GCD/">同余和GCD</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-08-15, 16:14:56</p>
-        <p><span>最后更新:</span>2019-08-28, 18:22:52</p>
+        <p><span>最后更新:</span>2019-08-28, 18:32:13</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/15/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/15/同余和GCD/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/15/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
