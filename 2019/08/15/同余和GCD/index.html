@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/34.webp">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/35.webp">
-<meta property="og:updated_time" content="2019-08-28T09:58:16.118Z">
+<meta property="og:updated_time" content="2019-08-28T10:22:52.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余和GCD">
 <meta name="twitter:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
@@ -361,11 +361,11 @@
 </li>
 <li>
 <p><strong>带模运算的性质</strong></p>
-<p>（1）$\left( a+b \right) %p=\left( a%p+b%p\right) %p$</p>
+<p>（1）$\left( a+b \right)\ %p=\left( a\ %p+b\ %p\right)\ %p$</p>
 <p>（2）$\left( a-b \right) %p=\left( a%p-b%p\right) %p$</p>
 <p>（3）$( a* b ) %p=( a\ %p* b\ %p)\ %p$</p>
 <p>（4）$( a^b ) %p=( ( a%p) ^b ) %p$</p>
-<p>（5）★$\left( \frac{a}{b} \right) %p≠\left(\frac{a%p}{b%p} \right) %p$</p>
+<p>（5）★$\left( \frac{a}{b} \right) \ %p≠\left(\frac{a\ %p}{b\ %p} \right)\  %p$</p>
 <p>（6）交换律：$(a+b)%p=(b+a) %p$，$(a<em>b) %p=(b</em>a) %p$</p>
 <p>（7）结合律：$((a+b) \ %p+c) %p=(a+(b+c) %p) %p$</p>
 <p>​						$((a*b) %p * c) %p=(a * (b * c) %p) %p$</p>
@@ -424,8 +424,8 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <p><img src="http://pvyyuu4id.bkt.clouddn.com/34.webp" alt></p>
 </li>
 <li>
-<p>最初的绿色矩形的长和宽分别是a = 1071、b = 462，从中不断铺上462×462的正方形直到剩下部分面积是462×147；然后再铺上147×147的正方形直至剩下21×147的面积；最后，铺上21×21的正方形时，绿色部分就没有了。即21是1071和462的最大公约数。
-<img src="http://pvyyuu4id.bkt.clouddn.com/35.webp" alt></p>
+<p>最初的绿色矩形的长和宽分别是a = 1071、b = 462，从中不断铺上462×462的正方形直到剩下部分面积是462×147；然后再铺上147×147的正方形直至剩下21×147的面积；最后，铺上21×21的正方形时，绿色部分就没有了。即21是1071和462的最大公约数。</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/35.webp" alt></p>
 </li>
 </ul>
 <p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归版</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -489,7 +489,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <p>那么</p>
 <p>$GCD( a,b ) =p_{1}^{\min (e_1,f_1 )}p_{2}^{\min ( e_2,f_2 )}...p_{r}^{\min (e_r,f_r )}$</p>
 <p>$LCM( a,b ) =p_{1}^{\max (e_1,f_1 )}p_{2}^{\max ( e_2,f_2 )}...p_{r}^{\max (e_r,f_r )}$</p>
-<p>明显有：*<em>GCD(a,b) * LCM(a,b)= a <em>b</em></em></p>
+<p>明显有：<strong>GCD(a,b)  *  LCM(a,b)= a * b</strong></p>
 <p>即：<strong>LCM(a,b)=a * b / GCD(a,b)</strong></p>
 </blockquote>
 <h3>七、贝祖定理</h3>
@@ -566,7 +566,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
         <p><span>本文标题:</span><a href="/2019/08/15/同余和GCD/">同余和GCD</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
         <p><span>发布时间:</span>2019-08-15, 16:14:56</p>
-        <p><span>最后更新:</span>2019-08-28, 17:58:16</p>
+        <p><span>最后更新:</span>2019-08-28, 18:22:52</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/15/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/15/同余和GCD/</a>
             <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/15/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
