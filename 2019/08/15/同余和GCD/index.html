@@ -19,18 +19,18 @@
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同余和GCD">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/23/同余和GCD/index.html">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/15/同余和GCD/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
 <meta property="og:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://segmentfault.com/img/bVDwkj?w=764&h=470">
-<meta property="og:image" content="https://pic2.zhimg.com/50/v2-f8cfc9b60026a1b4f9f8c8790b7f4bd2_hd.webp">
-<meta property="og:image" content="https://pic4.zhimg.com/50/v2-318543c9634ae94fd88949178ebe3e5d_hd.webp">
-<meta property="og:updated_time" content="2019-08-28T09:28:46.411Z">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/34.webp">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/35.webp">
+<meta property="og:updated_time" content="2019-08-28T09:58:16.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余和GCD">
 <meta name="twitter:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
-<meta name="twitter:image" content="https://segmentfault.com/img/bVDwkj?w=764&h=470">
+<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -282,8 +282,8 @@
       <div class="body-wrap"><article id="post-同余和GCD" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/23/同余和GCD/" class="article-date">
-      <time datetime="2019-08-23T08:14:56.000Z" itemprop="datePublished">2019-08-23</time>
+      <a href="/2019/08/15/同余和GCD/" class="article-date">
+      <time datetime="2019-08-15T08:14:56.000Z" itemprop="datePublished">2019-08-15</time>
 </a>
 
 
@@ -409,7 +409,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <p>$=\left( 1+a^{\frac{n-1}{2}}\right) S_{\frac{n-1}{2}}+a^n$</p>
 <h3>五、最大公因数(Greatest Common Divisor,GCD)</h3>
 <p>两个或多个整数共有约数中最大的一个</p>
-<p><img src="https://segmentfault.com/img/bVDwkj?w=764&amp;h=470" alt="img"></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/33.png" alt></p>
 <p><strong>欧几里得算法（辗转相除法）</strong></p>
 <blockquote>
 <p>如果 d和r是a除以 b的商和余数，那么 a和b的最大公因数等于 b和r的最大公因数，即GCD(a,b)=GCD(b,a%b)</p>
@@ -421,11 +421,11 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <ul>
 <li>
 <p>两条线段长分别可表示 252和 105，则其中每一小分段长代表最大公约数21。如动画所示，只要辗转地从大数中减去小数，直到其中一段的长度为0，此时剩下的一条线段的长度就是252和105的最大公因数。</p>
-<p><img src="https://pic2.zhimg.com/50/v2-f8cfc9b60026a1b4f9f8c8790b7f4bd2_hd.webp" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/34.webp" alt></p>
 </li>
 <li>
 <p>最初的绿色矩形的长和宽分别是a = 1071、b = 462，从中不断铺上462×462的正方形直到剩下部分面积是462×147；然后再铺上147×147的正方形直至剩下21×147的面积；最后，铺上21×21的正方形时，绿色部分就没有了。即21是1071和462的最大公约数。
-<img src="https://pic4.zhimg.com/50/v2-318543c9634ae94fd88949178ebe3e5d_hd.webp" alt="img"></p>
+<img src="http://pvyyuu4id.bkt.clouddn.com/35.webp" alt></p>
 </li>
 </ul>
 <p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归版</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -563,13 +563,13 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/23/同余和GCD/">同余和GCD</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/15/同余和GCD/">同余和GCD</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-08-23, 16:14:56</p>
-        <p><span>最后更新:</span>2019-08-28, 17:28:46</p>
+        <p><span>发布时间:</span>2019-08-15, 16:14:56</p>
+        <p><span>最后更新:</span>2019-08-28, 17:58:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/23/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/23/同余和GCD/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/23/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/15/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/15/同余和GCD/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/15/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -582,15 +582,15 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">
-                    通信网络设计问题（kruskal求最短路）
+                <a href="/2019/08/17/2019牛客多校第九场/">
+                    2019牛客多校第九场
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/21/数据分析/">
-                    数据分析
+                <a href="/2019/08/13/期望习题(概率dp)/">
+                    期望习题(概率dp)
                 </a>
             </div>
         
@@ -677,7 +677,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/24/通信网络设计问题（kruskal求最短路）/" title="上一篇: 通信网络设计问题（kruskal求最短路）">
+            <a href="/2019/08/17/2019牛客多校第九场/" title="上一篇: 2019牛客多校第九场">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -685,13 +685,13 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/21/数据分析/" title="下一篇: 数据分析">
+            <a href="/2019/08/13/期望习题(概率dp)/" title="下一篇: 期望习题(概率dp)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/23/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
 
 
 
@@ -809,5 +809,21 @@ MathJax.Hub.Queue(function() {
 </script>
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
