@@ -617,75 +617,6 @@
 
 
   
-    <article id="post-同余和GCD" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/15/同余和GCD/" class="article-date">
-      <time datetime="2019-08-15T08:14:56.000Z" itemprop="datePublished">2019-08-15</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/同余和GCD/">同余和GCD</a>
-    </h1>
-  
-
-		
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3>一、模运算</h3>
-<p>a除以m的余数 r，<strong>r=a mod m=a%m</strong></p>
-<p><strong>0≤r≤m-1</strong>​，一定存在 <strong>a=km+r,k=⌊a/m⌋</strong></p>
-<p>a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3</p>
-<p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/15/同余和GCD/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-期望习题(概率dp)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -941,6 +872,77 @@
       
         <p class="article-more-link">
           <a href="/2019/08/01/笛卡尔树/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-—-int128" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/01/—-int128/" class="article-date">
+      <time datetime="2019-08-01T12:51:56.000Z" itemprop="datePublished">2019-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/—-int128/">—__int128</a>
+    </h1>
+  
+
+		
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2>关于 __int128</h2>
+<p>众所周知:</p>
+<p><code>int</code>是32位，范围大概为10^9</p>
+<p><code>long long</code>(g++编译器）， <code>__int64</code>（用<code>%I64d</code>控制，用scanf,printf比较好），都是64位扩展,范围大概是10^19</p>
+<p>关于两种扩展的区别，参照:https://blog.csdn.net/qq_31736627/article/details/52912691</p>
+<p><code>__int128</code>是128位，大概10^38范围，用于处理大数,但它能不能使用取决于编译器，大部分OJ是支持的，<strong>只有在Linux环境下能够使用</strong></p>
+<p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/细节/">细节</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/01/—-int128/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

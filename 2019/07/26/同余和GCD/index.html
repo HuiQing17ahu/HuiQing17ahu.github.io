@@ -19,7 +19,7 @@
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同余和GCD">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/15/同余和GCD/index.html">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/26/同余和GCD/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
 <meta property="og:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
 <meta property="og:locale" content="zh-CN">
@@ -28,7 +28,11 @@
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/33.png">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/34.webp">
 <meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/35.webp">
-<meta property="og:updated_time" content="2019-08-28T10:32:13.279Z">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/37.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/38.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/40.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/39.png">
+<meta property="og:updated_time" content="2019-08-29T02:28:40.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同余和GCD">
 <meta name="twitter:description" content="一、模运算 a除以m的余数 r，r=a mod m=a%m 0≤r≤m-1​，一定存在 a=km+r,k=⌊a/m⌋ a%m的正负由被除数a决定，与m无关，eg.  7%4=3，-7%4=-3">
@@ -284,8 +288,8 @@
       <div class="body-wrap"><article id="post-同余和GCD" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/15/同余和GCD/" class="article-date">
-      <time datetime="2019-08-15T08:14:56.000Z" itemprop="datePublished">2019-08-15</time>
+      <a href="/2019/07/26/同余和GCD/" class="article-date">
+      <time datetime="2019-07-26T08:14:56.000Z" itemprop="datePublished">2019-07-26</time>
 </a>
 
 
@@ -479,7 +483,13 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 <h3>七、贝祖定理</h3>
 <p><strong>贝祖定理</strong>：对于非零整数a，b，有 $d=gcd\ (a,b)$，那么就存在整数 x和 y，使得  $ax+by=d$</p>
 <blockquote>
-<p>证明：</p>
+<p>证明：对于非零整数a,b，a%b=r1，r1严格小于|b|，并且gcd(a,b)=gd(r1,b)，然后我们重复的进行下去</p>
+<p>$a=bx_1+r_1,0&lt;r_1&lt;|b|$</p>
+<p>$b=r_1x_2+r_2,0&lt;r_2&lt;r_1$</p>
+<p>...</p>
+<p>$r_{n-1}=r_nx_{n+1}+r_{n+1},0&lt;r_{n+1}&lt;r_n$</p>
+<p>$r_n=r_{n+1}x_{n+2}$（此时余数为0了）</p>
+<p>当$r_{n+1}$是除法过程最后一个非零数余数，代入上式</p>
 </blockquote>
 <p><strong>贝祖定理扩展</strong>：如果 $ax+by=n$ 有解，<strong>充要条件</strong>是 <strong>n 是gcd(a,b)的倍数</strong></p>
 <blockquote>
@@ -515,10 +525,59 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 </li>
 <li>
 <p><strong>模逆（逆元）</strong></p>
+<p>在模n运算下，整数a和x互为乘法逆元</p>
+<p>对于整数a,n,如果有gcd(a,n)=1,那么就存在一个整数x使得	<strong>ax=1(mod n)</strong></p>
+<p>由贝祖定理知，存在x,y使得	<strong>ax+ny=gcd(a,n)=1</strong>，即	<strong>1≡ax+ny≡ax (mod n)</strong></p>
+<blockquote>
+<p>用扩展欧几里得算法求解方程：ax+ny=1</p>
+<p>注意：当a和n不互质时，模逆无解</p>
+<p>当n时素数时，模逆也可以用费马小定理求：$x=a^{n-2}$</p>
+</blockquote>
+<p><strong>逆元的重要应用</strong>：求除法的模  <strong>（a/b) mod m</strong></p>
+<p>直接计算是求a/b，然后取模，但是如果b是大整数，做<strong>除法后再取模会损失精度</strong>，此时，需要避开除法计算</p>
+<p>设b的逆元是k，将除法的模转换为<strong>带模乘法</strong>:</p>
+<p>$(\frac{a}{b} )\ mod\ m=((\frac{a}{b})\ mod\ m) * ((b * k)\ mod\ m)=(\frac{a}{b} * b * k)\ mod\ m=(a * k)\ mod\ m$</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/37.png" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/38.png" alt></p>
 </li>
 </ol>
 <h3>十、中国剩余定理</h3>
-<h3>十一、习题</h3>
+<p>设k组数$(a_i,n_i)$，其中，$n_i$ <strong>两两互素</strong>，要找到最小的正整数x，满足方程组 $x≡a_i \ (mod\ n_i) $，(i=1,2,...k)</p>
+<p><strong>算法步骤</strong>：</p>
+<p>令$n=n_1n_2n_3...n_k,m_i=\frac{n}{n_i}$</p>
+<p>显然$gcd(m_i,n_i)=1$，采用扩展欧几里得算法计算出 $x_i$ 满足 $m_ix_i≡1\ (mod\ n_i)$</p>
+<p>方程组的解	$x=(a_1x_1m_1+a_2x_2m_2+...+a_kx_km_k)\ mod\ n$</p>
+<p>方程组的任意两个解 <strong>模n同余</strong>，因此x就是最小的解</p>
+<blockquote>
+<p>证明		$x=a_1x_1m_1+a_2x_2m_2+...+a_kx_km_k$	是解</p>
+<p>$x\ mod\ n_i=(a_1x_1m_1+a_2x_2m_2+...+a_kx_km_k)\ mod\ n_i=a_ix_im_i\ mod\ n_i=a_i\ mod\ n_i$</p>
+</blockquote>
+<blockquote>
+<p>证明	任意两个解  模n同余，即  $x_1≡x_0\ (mod\ n)$</p>
+<p>设有两个解 $x_1,x_0$ 则：</p>
+<p>$x_1≡a_i(mod\ n_i)\ (i=1,2,...k)$</p>
+<p>$x_0≡a_i(mod\ n_i)\ (i=1,2,...k)$</p>
+<p>→ $n_i|(x_1-x_0)\ (i=1,2,...k)$</p>
+<p>$n_i|(x_1-x_0)$ 且 $n_i$ 两两互质→$x_1≡x_0\ (mod\ n)$</p>
+</blockquote>
+<h4>扩展中国剩余定理</h4>
+<p>$n_i$ <strong>不一定两两互素</strong></p>
+<p><strong>分析</strong>：</p>
+<p>$x≡a_1(mod\ n_1)$</p>
+<p>$x≡a_2(mod\ n_2)$</p>
+<p>→ $x+u * n_1=a_1$ 且 $x+v * n_2=a_2$</p>
+<p>→ $n_1 * u+n_2 * v=(a_1-a_2)$</p>
+<p>此关于u,v的方程当且仅当 $gcd(n_1,n_2)|(a_1-a_2)$ 时有解</p>
+<blockquote>
+<p>用扩展欧几里得算法求解 $n_1 * u+n_2 * v=(a_1-a_2)$</p>
+<p>一组解为 $(u_0,v_0)$ ，此方程解集为：(t为任意整数)</p>
+<p>$u=u_0+t * \frac{n_2}{gcd(n1,n2)}$</p>
+<p>$v=v_0-t * \frac{n_1}{gcd(n1,n2)}$</p>
+</blockquote>
+<h3>十一、高次同余方程</h3>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/40.png" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/39.png" alt></p>
+<h3>十二、习题</h3>
 <p>余数之和 BZOJ-1257</p>
 <p>Matrix Power Series  POJ-3233</p>
 <p>LCM Walk HDU-5584</p>
@@ -547,13 +606,13 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/15/同余和GCD/">同余和GCD</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/26/同余和GCD/">同余和GCD</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-08-15, 16:14:56</p>
-        <p><span>最后更新:</span>2019-08-28, 18:32:13</p>
+        <p><span>发布时间:</span>2019-07-26, 16:14:56</p>
+        <p><span>最后更新:</span>2019-08-29, 10:28:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/15/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/08/15/同余和GCD/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/15/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/26/同余和GCD/" title="同余和GCD">https://huiqing17ahu.github.io/2019/07/26/同余和GCD/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/26/同余和GCD/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -566,15 +625,15 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/17/2019牛客多校第九场/">
-                    2019牛客多校第九场
+                <a href="/2019/08/01/2019牛客多校第五场/">
+                    2019牛客多校第五场
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/13/期望习题(概率dp)/">
-                    期望习题(概率dp)
+                <a href="/2019/07/24/2019牛客多校第一场/">
+                    2019牛客多校第一场
                 </a>
             </div>
         
@@ -586,7 +645,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、模运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">二、同余</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">三、快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">四、等比数列求和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">五、最大公因数(Greatest Common Divisor,GCD)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">6.</span> <span class="toc-text">六、最小公倍数（Least Common Multiple, LCM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">7.</span> <span class="toc-text">七、贝祖定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">8.</span> <span class="toc-text">八、扩展欧几里得算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">9.</span> <span class="toc-text">九、一元线性同余方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">10.</span> <span class="toc-text">十、中国剩余定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">11.</span> <span class="toc-text">十一、习题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">12.</span> <span class="toc-text">十二、相关链接</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">一、模运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">二、同余</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">三、快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">四、等比数列求和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">五、最大公因数(Greatest Common Divisor,GCD)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">6.</span> <span class="toc-text">六、最小公倍数（Least Common Multiple, LCM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">7.</span> <span class="toc-text">七、贝祖定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">8.</span> <span class="toc-text">八、扩展欧几里得算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">9.</span> <span class="toc-text">九、一元线性同余方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">10.</span> <span class="toc-text">十、中国剩余定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">10.1.</span> <span class="toc-text">扩展中国剩余定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">11.</span> <span class="toc-text">十一、高次同余方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">12.</span> <span class="toc-text">十二、习题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">13.</span> <span class="toc-text">十二、相关链接</span></a></li></ol>
         
     </div>
     <style>
@@ -661,7 +720,7 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/17/2019牛客多校第九场/" title="上一篇: 2019牛客多校第九场">
+            <a href="/2019/08/01/2019牛客多校第五场/" title="上一篇: 2019牛客多校第五场">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -669,13 +728,13 @@ $=S_{\frac{n}{2}}+a^{\frac{n}{2}}S_{\frac{n}{2}}$</p>
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/13/期望习题(概率dp)/" title="下一篇: 期望习题(概率dp)">
+            <a href="/2019/07/24/2019牛客多校第一场/" title="下一篇: 2019牛客多校第一场">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
 
 
 
