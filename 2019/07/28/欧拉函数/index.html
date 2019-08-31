@@ -15,18 +15,28 @@
 
 
 
-<meta name="description" content="A.digits 2 题目链接 题意：给你一个&amp;lt;=100的数n，要你找到一个正整数满足: (1)组成这个数的所有数字的和能够被n整除 (2)这个数本身能够被n整除 (3)这个数不能包含超过10^4个数字，即最多为10^4位">
-<meta name="keywords" content="牛客多校">
+<meta name="description" content="欧拉函数 欧拉函数 一、欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
+<meta name="keywords" content="数论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019牛客多校第五场">
-<meta property="og:url" content="https://huiqing17ahu.github.io/2019/08/01/2019牛客多校第五场/index.html">
+<meta property="og:title" content="欧拉函数">
+<meta property="og:url" content="https://huiqing17ahu.github.io/2019/07/28/欧拉函数/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="A.digits 2 题目链接 题意：给你一个&amp;lt;=100的数n，要你找到一个正整数满足: (1)组成这个数的所有数字的和能够被n整除 (2)这个数本身能够被n整除 (3)这个数不能包含超过10^4个数字，即最多为10^4位">
+<meta property="og:description" content="欧拉函数 欧拉函数 一、欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-04T13:05:10.924Z">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/42.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/43.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/44.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/45.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/46.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/47.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/50.jpg">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/48.png">
+<meta property="og:image" content="http://pvyyuu4id.bkt.clouddn.com/49.png">
+<meta property="og:updated_time" content="2019-08-31T09:14:35.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019牛客多校第五场">
-<meta name="twitter:description" content="A.digits 2 题目链接 题意：给你一个&amp;lt;=100的数n，要你找到一个正整数满足: (1)组成这个数的所有数字的和能够被n整除 (2)这个数本身能够被n整除 (3)这个数不能包含超过10^4个数字，即最多为10^4位">
+<meta name="twitter:title" content="欧拉函数">
+<meta name="twitter:description" content="欧拉函数 欧拉函数 一、欧拉函数  给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。 φ(1)=1 $\varphi \left( n \right) =\varSigma _{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $">
+<meta name="twitter:image" content="http://pvyyuu4id.bkt.clouddn.com/42.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +68,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>2019牛客多校第五场 | Huiqing&#39;s  blog</title>
+<title>欧拉函数 | Huiqing&#39;s  blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -275,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-2019牛客多校第五场" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-欧拉函数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/01/2019牛客多校第五场/" class="article-date">
-      <time datetime="2019-08-01T04:24:53.000Z" itemprop="datePublished">2019-08-01</time>
+      <a href="/2019/07/28/欧拉函数/" class="article-date">
+      <time datetime="2019-07-28T15:34:43.000Z" itemprop="datePublished">2019-07-28</time>
 </a>
 
 
@@ -294,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2019牛客多校第五场
+      欧拉函数
     </h1>
   
 
@@ -306,7 +316,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛客多校/">牛客多校</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -316,16 +326,197 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2>A.digits 2</h2>
-<p><a href="https://ac.nowcoder.com/acm/contest/885/A" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：给你一个&lt;=100的数n，要你找到一个正整数满足:</p>
-<p>(1)组成这个数的所有数字的和能够被n整除</p>
-<p>(2)这个数本身能够被n整除</p>
-<p>(3)这个数不能包含超过10^4个数字，即最多为10^4位</p>
+        <h2>欧拉函数</h2>
+<h3>欧拉函数</h3>
+<h3>一、欧拉函数</h3>
+<ul>
+<li>给定正整数n，欧拉函数φ(n)=不大于n且和n互质的正整数的个数(包括1)。</li>
+<li>φ(1)=1</li>
+<li>$\varphi \left( n \right) =\varSigma
+_{i=1}^{n}\left[ gcd\left( i,n \right) ==1 \right] $</li>
+</ul>
 <p><a id="more"></a></p>
-<p>题解：直接输出n个数字n就行了，因为n&lt;=100，然后耶不会超过10^4位，所以可行。要敏锐观察到题目给出条件的暗示。</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">ll mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    ll t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">    	ll n;</span><br><span class="line">    	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    	<span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    	<span class="built_in">cout</span>&lt;&lt;n;</span><br><span class="line">    	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里！注意！用<code>ios::sync_with_stdio(false);</code>的时候scanf和cin<strong>不要混用</strong>!!!,如果你搞false了，那就不要用scanf了！</p>
+<blockquote>
+<p><strong>完全余数集合</strong></p>
+<p>Zn = { 不大于n 且和n 互质的数}</p>
+<p>|Zn| ＝φ(n)</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>性质</strong></p>
+<p><strong>(1)p为素数 ，则 φ( p)=p -1</strong></p>
+<blockquote>
+<p>质数与小于它的每一个，都构成互关系。 质数与小于它的每一个，都构成互关系。</p>
+</blockquote>
+<p>(<strong>2)p为素数，正整数</strong> $n=p^k$，则$\varphi \left( n \right) =p^k-p^{k-1}$</p>
+<p>​    <strong>或者写作</strong> $\varphi \left( n \right) =p^{k-1}\left(p-1 \right) =p^k\left( 1-\frac{1}{p} \right) $</p>
+<blockquote>
+<p>证明：</p>
+<p>小于$p^k$的正整数个数为$p^k-1$个，其中与$p^k$不互质的正整数有{p,2p,3p,4p,...,$(p^{k-1}-1)p$},共计$p^{k-1}-1$个</p>
+<p>所以$\varphi \left( n \right) =p^k-1-\left( p^{k-1}-1\right) =p^k-p^{k-1}$</p>
+</blockquote>
+<p>**（3）两个素数 p,q  ,n=p * q​，则  φ(n) =( p-1) * ( q-1) **</p>
+<blockquote>
+<p>证明：</p>
+<p>Zn={1,2,3,...,n-1}-{p,2p,3p,...,(q-1)p}-{q,2q,3q,...,(p-1)q}</p>
+<p>φ(n)=(n-1)-(q-1)-(p-1)</p>
+<p>=(p*q-1)-(p-1)-(q-1)</p>
+<p>=(p*q-p)-(q-1)</p>
+<p>=p(q-1)-(q-1)</p>
+<p>=(p-1)(q-1)</p>
+</blockquote>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/42.png" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/43.png" alt></p>
+<p><strong>(4)当b时质数,a%b=0,则φ(ab)=φ(a)b</strong></p>
+<blockquote>
+<p>证明：</p>
+<p>设 $a=kb^n$ 且gcd(k,b)=1，则 $φ(a)=φ(k)φ(b^n)$，$φ(k)=\frac{φ(a)}{φ(b^n)}$</p>
+<p>$φ(ab)=φ(kb^{n+1})=φ(k)φ(b^{n+1})=\frac{φ(a)}{φ(b^n)}φ(b^{n+1})=φ(a)(\frac{φ(b^{n+1})}{φ(b^n)})=φ(a)b$</p>
+<p>$φ(b^{n+!})=b^{n+1}-b^n,φ(b^n)=b^n-b^{n-1}$</p>
+</blockquote>
+<p><strong>(5)任意正整数n：</strong> $n=p^{a_1}_1p^{a_2}_2...p^{a_m}_m$ ( $p_i$ 为素数)，$φ(n)=n(1-\frac{1}{p_1})(1-\frac{1}{p_2})...(1-\frac{1}{p_m})$</p>
+<blockquote>
+<p>证明：</p>
+<p>$φ(n)=φ(p^{a_1}_1)φ(p^{a_2}_2)...φ(p^{a_m}_m)$</p>
+<p>$=(p^{a_1}_1p^{a_2}_2...p^{a_m}_m)(1-\frac{1}{p_1})(1-\frac{1}{p_2})...(1-\frac{1}{p_m})$ (由性质(2)知）</p>
+<p>$=n(1-\frac{1}{p_1})(1-\frac{1}{p_2})...(1-\frac{1}{p_m})$ (被称为欧拉函数计算公式)</p>
+</blockquote>
+<p>如何进一步理解欧拉函数计算公式？</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/44.png" alt></p>
+<p><strong>(6)欧拉函数递推式</strong>：可用于线性求1~n所有数的欧拉函数</p>
+<p>给定质数p，满足p|x,</p>
+<p>若p^2|x不成立，则φ(x)=φ(x/p)*(p-1)</p>
+<p>若p^2|x成立，则φ(x)=φ(x/p)*p</p>
+</li>
+</ul>
+<p>欧拉函数打表：</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> primes[N], euler[N], cnt;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_eulers</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	euler[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i &lt;= n; i++ )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( !st[i] )&#123;</span><br><span class="line">		primes[cnt++] = i;</span><br><span class="line">		euler[i] = i<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j=<span class="number">0</span>; primes[ j] &lt;= n/i; j++ )&#123;</span><br><span class="line">		st[ primes[ j]*i ] = <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">			<span class="keyword">if</span> ( i % primes[ j] == <span class="number">0</span> ) &#123;</span><br><span class="line">				euler[ i*primes[ j] ] = euler[i] * primes[ j];</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">		euler[ i*primes[ j] ] = euler[i] * ( primes[j]<span class="number">-1</span> );</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>(7)整数n  等于n的所有约数(包括1和n)的欧拉函数之和，即</strong> $n=\varSigma_{d|n}\varphi \left( d \right) $</p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/45.png" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/46.png" alt></p>
+<p><strong>(8)给定整数n，所有小于n且与n互质的数的和是n ∗ φ(n)/2</strong></p>
+<ol>
+<li>
+<p>小于n的与n互质数i 和n-i 总是成对出现，且它们的和是n；</p>
+<p>小于n的且与n互质 数的个数是φ(n)。</p>
+</li>
+<li>
+<p>所以，$\varSigma _{i=1}^{n-1}i\left[ gcd\left( i,n\right) ==1 \right] =n*\varphi \left( n \right) /2$，还需分析i=n-i的情况 (即n为偶数情况)</p>
+<p>(1)如果n是奇数，i≠n-i</p>
+<p>(2)如果n是大于2的偶数，gcd(n,n/2)≠1</p>
+<p>(3)如果n是2,n * φ(n)/2=2 * 1/2=1</p>
+</li>
+<li>
+<p>性质：若  gcd(n,i)=1，则  gcd(n,n-i)=1(1≤i≤n)</p>
+<p>反证法：</p>
+<p>如果存在k≠1 使gcd(n,n-i)=k，那么(n-i)%k=0，n%k=0，n=k * j</p>
+<p>→ (k * j-i)%k=0 → k * j%k-i%k=0 → i%k=0</p>
+<p>因为k是n的因子， i%k=0 → gcd(n,i)=k，与原命题矛盾。</p>
+</li>
+</ol>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/47.png" alt></p>
+<h3>二、欧拉定理</h3>
+<h4>1.欧拉定理</h4>
+<p>正整数a和n互质，有$a^{φ(n)}≡1\ mod\ n$</p>
+<blockquote>
+<p>证明：</p>
+<p>1.令Zn={ $x_1,x_2,...,x_{φ(n)}$ }为 φ(n)个&lt;n且与n互质的数 $x_i$ ,</p>
+<p>构造S={ $ax_1$%n , $ax_2$%2 , ...$ax_{φ(n)}$%n}</p>
+<p>即要证：Zn=S</p>
+<p>（1）a与n互质 且 $x_i$与n互质 → $ax_i$ 与n互质 → $ax_i\ mod\ n∈Zn$</p>
+<p>（2）若i≠j，则 $x_i≠x_j$ → $ax_i$%n ≠ $ax_j$%n (否则由模运算消去律，$x_i=x_j$)</p>
+<p>2.证： $a^{φ(n)}x_1x_2...x_{φ(n)}\ mod\ n≡(ax_1)(ax_2)...(ax_{φ(n)}\ mod\ n)$</p>
+<p>​			$≡(ax_1\ mod\ n)(ax_2\ mod\ n)...(ax_{φ(n)}\ mod\ n)≡x_1x_2...x_{φ(n)}\ mod\ n$</p>
+<p>所以有：$a^{φ(n)}x_1x_2...x_{φ(n)}≡x_1x_2...x_{φ(n)}\ mod\ n$</p>
+<p>因为 $x_i$ （1≤i≤φ(n) ）与n互质，所以 $a^{φ(n)}≡1\ mod\ n$ （消去律）</p>
+</blockquote>
+<p><strong>模运算消去律</strong>：若gcd(c,p)=1,则ac≡bc mod p → a≡b mod p</p>
+<p>证明：</p>
+<p>ac ≡ bc mod p → c(a -b) = kp</p>
+<p>gcd (c,p )=1 → 存在 2种可能： 1) c 能整除 k   2)a=b</p>
+<p>如果 2) 成立，命题 a ≡ b mod p 显然成立</p>
+<p>如果 1) 成立 ，则 k = ck‘</p>
+<p>→ c(a -b)= kp 可改写为 c(a -b) =  ck‘p</p>
+<p>所以 a-b= k‘p,得出 a ≡ b mod p</p>
+<h4>2.费马小定理</h4>
+<p>若正整数a与素数p互质，则有$a^{p-1}≡1(mod\ p)$,或写为$a^p≡a(mod\ p)$</p>
+<p>φ(p)=p-1</p>
+<p><strong>费马小定理求逆元</strong></p>
+<p>若p为素数，$a^{p-1}≡1(mod\ p)$ → $aa^{p-2}≡1(mod\ p)$</p>
+<p><strong>欧拉定理求逆元</strong></p>
+<p>若a,p互素，$a^{φ(p)}≡1(mod\ p)$ → $aa^{φ(p)-1}≡1(mod\ p)$</p>
+<h4>3.整数的阶</h4>
+<p>设a与n是互质的正整数，使得 $a^x≡1$  mod n 成立的最小正整数x 称为整数a模n的阶，记为 $ord_n\ a$</p>
+<p><strong>定理</strong>：</p>
+<ol>
+<li>
+<p>如果a与n是互质的整数且n&gt;0，那么正整数x 是同余式$a^x≡1\ mod\ n$的一个解当且仅当$ord_n\ a|x$</p>
+</li>
+<li>
+<p>如果a与n是互质的整数且n&gt;0，那么$a^i≡a^j\ mod\ n$，当且仅当$i≡j\ mod\ 𝑜𝑟𝑑_𝑛𝑎$，其中i,j 为非负整数。</p>
+</li>
+</ol>
+<p><strong>推论</strong>：</p>
+<p>如果a与n是互质的整数且n&gt;0，那么 $ord_n\ a|φ(n)$</p>
+<h4>4.原根</h4>
+<p>设a与n是互质的正整数且n&gt;0，则当 $ord_n\ a|φ(n)$ 时，称a为模n的原根，即a满足$a^{φ(n)}≡1\ mod\ n$</p>
+<p><strong>特点</strong>：</p>
+<ol>
+<li>
+<p>所有的素数p一定有原根，且模p的原根个数为φ(p-1)。</p>
+</li>
+<li>
+<p>不是所有的整数都有原根。</p>
+</li>
+</ol>
+<p><strong>原根存在的条件</strong></p>
+<p>模m有原根的充要条件：m=2, 4,  $p^t$, $2⋅p^t$ ，其中p为奇质数，t为正整数</p>
+<p><strong>性质</strong></p>
+<ol>
+<li>
+<p>设a与m是互质的正整数且m&gt;0，则如果a是模m的一个原根，那么整数a,  $a^2$ , … , $a^{φ(m)}$ 构成模m的简化剩余系。</p>
+</li>
+<li>
+<p>设g 是模m的一个原根，i 是一个正整数，那么 $g^i$  也是模m的原根的充要条件是gcd(i,φ(m))=1 。</p>
+</li>
+</ol>
+<p>​    $ord_m(au)$ 的性质：若u是一个正整数，且 $ord_ma=t$ ,则 $ord_m(a^u)=\frac{t}{gcd(t,u)}$</p>
+<p>​    推论：当正整数m 有原根时，则有φ(φ(m)) 个原根。</p>
+<ol start="3">
+<li>一个数的最小原根的不超过$m^{\frac{1}{4} }$</li>
+</ol>
+<p>求最小原根：依次枚举2~ $m^{\frac{1}{4} }$ 判断即可</p>
+<p>求所有原根：枚举<strong>最小原根的指数</strong>即可</p>
+<h4>5.计算大数取模</h4>
+<p>求 (a^b)%m 的值，其中a,b都可能很大</p>
+<p><strong>快速幂求 (a^b)%m</strong></p>
+<p>(a^b)%m =()(a%m)^b)%m</p>
+<p>用带模快速幂计算，时间复杂度O(log b)；但当b是超大数时，我们还需要更快的算法。</p>
+<p>比如求：<img src="http://pvyyuu4id.bkt.clouddn.com/50.jpg" alt></p>
+<h3>三、欧拉降幂</h3>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/48.png" alt></p>
+<p><img src="http://pvyyuu4id.bkt.clouddn.com/49.png" alt></p>
+<h3>四、习题</h3>
+<p>Euler Function HDU-6322</p>
+<p>Farey Sequence POJ-2478</p>
+<p>LCM SUM SPOJ-5971</p>
+<p>Longge的问题 BZOJ-2705</p>
+<p>Count a × b HDU-5528</p>
+<p>The Luckiest number POJ-3696</p>
+<p>Period of Inf. Bin. Exp. POJ-3358</p>
+<p>Sum HDU-4704</p>
+<p>A ternary string 2018牛客暑期训练营 https://www.nowcoder.com/acm/contest/142/A</p>
+<p>Xyjj's sequence 2019ICPC南昌邀请赛 https://nanti.jisuanke.com/t/40255</p>
+<p>Visible Lattice Points POJ-3090 (欧拉函数)</p>
+<p>Stern-Brocot Tree HDU-4556 (法里数列)</p>
+<p>沙拉公主的困惑 SDOI2008 (欧拉函数+模逆)</p>
+<p>欧拉心算 BZOJ-4804 (欧拉函数)</p>
+<p>Bi-shoe and Phi-shoe LightOJ-1370 (欧拉函数)</p>
+<p>BZOJ-4173 (欧拉函数)</p>
+<p>Description has only two Sentences HDU-3307 (欧拉定理)</p>
+<p>上帝与集合的正确用法 BZOJ-3884 (欧拉降幂)</p>
+<p>Brute-force Algorithm HDU-3221 (欧拉降幂+矩阵快速幂)</p>
+<p>子序列 (欧拉降幂) https://ac.nowcoder.com/acm/problem/18203</p>
 
       
     </div>
@@ -334,13 +525,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/28/欧拉函数/">欧拉函数</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Huiqq</a></p>
-        <p><span>发布时间:</span>2019-08-01, 12:24:53</p>
-        <p><span>最后更新:</span>2019-08-04, 21:05:10</p>
+        <p><span>发布时间:</span>2019-07-28, 23:34:43</p>
+        <p><span>最后更新:</span>2019-08-31, 17:14:35</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/01/2019牛客多校第五场/" title="2019牛客多校第五场">https://huiqing17ahu.github.io/2019/08/01/2019牛客多校第五场/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/08/01/2019牛客多校第五场/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/28/欧拉函数/" title="欧拉函数">https://huiqing17ahu.github.io/2019/07/28/欧拉函数/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://huiqing17ahu.github.io/2019/07/28/欧拉函数/　　作者: Huiqq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -353,15 +544,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/01/—-int128/">
-                    —__int128
+                <a href="/2019/08/01/2019牛客多校第五场/">
+                    2019牛客多校第五场
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/07/28/欧拉函数/">
-                    欧拉函数
+                <a href="/2019/07/26/同余和GCD/">
+                    同余和GCD
                 </a>
             </div>
         
@@ -373,7 +564,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">A.digits 2</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">欧拉函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.1.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.2.</span> <span class="toc-text">一、欧拉函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.3.</span> <span class="toc-text">二、欧拉定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.欧拉定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.费马小定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.整数的阶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.原根</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.3.5.</span> <span class="toc-text">5.计算大数取模</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.4.</span> <span class="toc-text">三、欧拉降幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.5.</span> <span class="toc-text">四、习题</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -409,7 +600,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"2019牛客多校第五场　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"欧拉函数　| Huiqing's  blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -448,7 +639,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/01/—-int128/" title="上一篇: —__int128">
+            <a href="/2019/08/01/2019牛客多校第五场/" title="上一篇: 2019牛客多校第五场">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +647,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/07/28/欧拉函数/" title="下一篇: 欧拉函数">
+            <a href="/2019/07/26/同余和GCD/" title="下一篇: 同余和GCD">
                 <i class="fa fa-angle-right"></i>
             </a>
         
