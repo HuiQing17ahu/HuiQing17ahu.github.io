@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="平衡二叉树   平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）   性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树   常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
+<meta name="description" content="平衡二叉树 平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）  性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树  常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平衡二叉树">
 <meta property="og:url" content="https://huiqing17ahu.github.io/2018/08/04/平衡二叉树/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="平衡二叉树   平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）   性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树   常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
+<meta property="og:description" content="平衡二叉树 平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）  性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树  常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-23T06:44:59.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平衡二叉树">
-<meta name="twitter:description" content="平衡二叉树   平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）   性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树   常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
+<meta name="twitter:description" content="平衡二叉树 平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）  性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树  常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -316,22 +316,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2>平衡二叉树</h2>
-<ul>
-<li>
-<p>平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）</p>
+        <h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><ul>
+<li><p>平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法）</p>
 </li>
-<li>
-<p><strong>性质:<strong>它是一棵空树或它的左右两个子树的</strong>高度差的绝对值不超过1</strong>，并且<strong>左右两个子树都是一棵平衡二叉树</strong></p>
+<li><p><strong>性质:</strong>它是一棵空树或它的左右两个子树的<strong>高度差的绝对值不超过1</strong>，并且<strong>左右两个子树都是一棵平衡二叉树</strong></p>
 </li>
-<li>
-<p>常用实现方法有<a href="https://baike.baidu.com/item/%E7%BA%A2%E9%BB%91%E6%A0%91/2413209" target="_blank" rel="noopener">红黑树</a>、<a href="https://baike.baidu.com/item/AVL/7543015" target="_blank" rel="noopener">AVL</a>、<a href="https://baike.baidu.com/item/%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91/13859070" target="_blank" rel="noopener">替罪羊树</a>、<a href="https://baike.baidu.com/item/Treap" target="_blank" rel="noopener">Treap</a>、<a href="https://baike.baidu.com/item/%E4%BC%B8%E5%B1%95%E6%A0%91/7003945" target="_blank" rel="noopener">伸展树</a>等</p>
-<p><a id="more"></a></p>
+<li><p>常用实现方法有<a href="https://baike.baidu.com/item/红黑树/2413209" target="_blank" rel="noopener">红黑树</a>、<a href="https://baike.baidu.com/item/AVL/7543015" target="_blank" rel="noopener">AVL</a>、<a href="https://baike.baidu.com/item/替罪羊树/13859070" target="_blank" rel="noopener">替罪羊树</a>、<a href="https://baike.baidu.com/item/Treap" target="_blank" rel="noopener">Treap</a>、<a href="https://baike.baidu.com/item/伸展树/7003945" target="_blank" rel="noopener">伸展树</a>等</p>
+<a id="more"></a>
 </li>
-<li>
-<p>其高度一般都良好地维持在O（log（n）），大大降低了操作的时间复杂度</p>
+<li><p>其高度一般都良好地维持在O（log（n）），大大降低了操作的时间复杂度</p>
 <blockquote>
-<p>对于一般的二叉搜索树（Binary Search Tree），其期望高度（即为一棵平衡树时）为log2n，其各操作的时间复杂度（O(log2n)）同时也由此而决定。但是，在某些极端的情况下（如在插入的序列是有序的时），二叉搜索树将<strong>退化成近似链或链</strong>，此时，其操作的<strong>时间复杂度将退化成线性的，即O(n)</strong>。我们可以通过<a href="https://baike.baidu.com/item/%E9%9A%8F%E6%9C%BA%E5%8C%96" target="_blank" rel="noopener">随机化</a>建立二叉搜索树来尽量的避免这种情况，但是在进行了多次的操作之后，由于在删除时，我们总是选择将待删除节点的后继代替它本身，这样就会造成总是右边的节点数目减少，以至于树<strong>向左偏沉</strong>。这同时也会造成树的<strong>平衡性受到破坏</strong>，提高它的操作的时间复杂度。</p>
+<p>对于一般的二叉搜索树（Binary Search Tree），其期望高度（即为一棵平衡树时）为log2n，其各操作的时间复杂度（O(log2n)）同时也由此而决定。但是，在某些极端的情况下（如在插入的序列是有序的时），二叉搜索树将<strong>退化成近似链或链</strong>，此时，其操作的<strong>时间复杂度将退化成线性的，即O(n)</strong>。我们可以通过<a href="https://baike.baidu.com/item/随机化" target="_blank" rel="noopener">随机化</a>建立二叉搜索树来尽量的避免这种情况，但是在进行了多次的操作之后，由于在删除时，我们总是选择将待删除节点的后继代替它本身，这样就会造成总是右边的节点数目减少，以至于树<strong>向左偏沉</strong>。这同时也会造成树的<strong>平衡性受到破坏</strong>，提高它的操作的时间复杂度。</p>
 </blockquote>
 </li>
 </ul>
@@ -388,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">平衡二叉树</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#平衡二叉树"><span class="toc-number">1.</span> <span class="toc-text">平衡二叉树</span></a></li></ol>
         
     </div>
     <style>
@@ -477,7 +472,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/27/二次剩余/">二次剩余</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/通信网络设计问题（kruskal求最短路）/">通信网络设计问题（kruskal求最短路）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据分析/">数据分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/数据可视化/">数据可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/matlab基础语法/">matlab基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/2019牛客多校第九场/">2019牛客多校第九场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/期望习题(概率dp)/">期望习题(概率dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/概率/">概率</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/2019牛客多校第七场/">2019牛客多校第七场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/笛卡尔树/">笛卡尔树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/—-int128/">—__int128</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/2019牛客多校第五场/">2019牛客多校第五场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/欧拉函数/">欧拉函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/同余和GCD/">同余和GCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/2019牛客多校第一场/">2019牛客多校第一场</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/素数、约数、反素数/">素数、约数、反素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/单调栈/">单调栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/模板整理/">模板整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/平衡二叉树/">平衡二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/树/">树</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/关于时间和空间限制的一些注意点/">关于时间和空间限制的一些注意点</a></li></ul>
 
 
 
@@ -595,21 +590,5 @@ MathJax.Hub.Queue(function() {
 </script>
 
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
