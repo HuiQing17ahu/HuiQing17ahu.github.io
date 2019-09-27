@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt;=n-m">
+<meta name="description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 <meta name="keywords" content="模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模板整理">
 <meta property="og:url" content="https://huiqing17ahu.github.io/2019/03/21/模板整理/index.html">
 <meta property="og:site_name" content="Huiqing&#39;s  blog">
-<meta property="og:description" content="1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt;=n-m">
+<meta property="og:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-21T09:00:44.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模板整理">
-<meta name="twitter:description" content="1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt;=n-m">
+<meta name="twitter:description" content="1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$ 粗暴计算法，只适合于较小的数，复杂度为O(n) 12345678910111213ll C(int n,int m)&amp;#123;	if(m&amp;lt;n-m)	m=n-m;		ll ans=1;	for(ll i=m+1;i&amp;lt;=n;i++)	ans*=i;	for(ll i=1;i&amp;lt">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -316,8 +316,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4 id="1、计算组合数C-n-m-frac-n-m-left-n-m-right"><a href="#1、计算组合数C-n-m-frac-n-m-left-n-m-right" class="headerlink" title="1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}"></a>1、计算组合数<script type="math/tex">C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}</script></h4><p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4>1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$</h4>
+<p>粗暴计算法，只适合于较小的数，复杂度为O(n)</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;n-m)</span><br><span class="line">	m=n-m;</span><br><span class="line">	</span><br><span class="line">	ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ll i=m+<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	ans*=i;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n-m;i++)</span><br><span class="line">	ans/=i;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -365,7 +366,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、计算组合数C-n-m-frac-n-m-left-n-m-right"><span class="toc-number">1.</span> <span class="toc-text">1、计算组合数C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">1、计算组合数$$C_{n}^{m}=\frac{n!}{m!\left( n-m \right) !}$$</span></a></li></ol>
         
     </div>
     <style>
@@ -572,5 +573,21 @@ MathJax.Hub.Queue(function() {
 </script>
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
